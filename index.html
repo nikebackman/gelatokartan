@@ -12,7 +12,21 @@
     />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script>
-        let map;
+
+        const login = () => {
+        const username = document.querySelector('#username').value;
+        const password = document.querySelector('#password').value;
+
+        if (username === 'user' && password === 'pass') {
+          // call the navigator to move to the new page
+          const navigator = document.querySelector('#navigator');
+          navigator.resetToPage('home.html');
+        } else {
+          ons.notification.alert('Wrong username/password combination');
+        }
+      }
+
+      let map;
   
         function initZoomControl(map) {
           document.querySelector(".zoom-control-in").onclick = function () {
@@ -169,18 +183,50 @@
     </style>
   </head>
   <body>
-    <ons-navigator id="navigator" page="home.html"></ons-navigator>
+    <ons-navigator id="navigator">
+
+    <ons-page>
+      <div style="text-align: center; margin-top: 200px">
+      <p>
+        <ons-input id="username" placeholder="Username" modifier="underbar"></ons-input>
+      </p>
+  
+      <p>
+        <ons-input
+          id="password"
+          placeholder="Password"
+          type="password"
+          modifier="underbar"
+        >
+        </ons-input>
+      </p>
+  
+      <p>
+        <ons-button onclick="login()">Sign in</ons-button>
+      </p>
+      </div>
+  
+    </ons-page>
+
+    <script>
+      const openPage = (page) => {
+        document.getElementById('navigator').pushPage(page.id);
+      }
+      </script>
 
     <template id="home.html">
       <ons-page id="home">
     
         <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
           <div class="center" style="color: white">GELATOKARTAN</div>
+          <div class="right">
+            <ons-toolbar-button onclick="openPage(profile)">
+              <ons-icon icon="md-account" style="color: white;"></ons-icon>
+            </ons-toolbar-button>
+          </div>
         </ons-toolbar>
 
-        <div id="map" style="border-radius: 10px"></div>
-
-        
+          <div id="map" style="border-radius: 10px"></div>
           
           <div class="control-panel">
             <div class="controls zoom-control">
@@ -207,12 +253,24 @@
               <button class="buttonHere">Min <br/>plats</button>
             </div>
           </div>
+
           <ons-card></ons-card>
           <ons-card></ons-card>
           <ons-card></ons-card>
-        </div>
        </ons-page>
    </template>
 
+   <template id="profile">
+     <ons-page id="profile">
+      <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
+        <div class="center" style="color: white">PROFIL</div>
+        <div class="left">
+          <ons-back-button></ons-back-button>
+        </div>
+      </ons-toolbar>
+
+     </ons-page>
+   </template>
+  </ons-navigator>
   </body>
 </html>
