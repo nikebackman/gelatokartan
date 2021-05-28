@@ -215,22 +215,50 @@
    </template>
    <!-- The core Firebase JS SDK is always required and must be listed first -->
    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
-
-   <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
+   <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
 
    <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
+    firebase.initializeApp({
       apiKey: "AIzaSyD6Z4UjiaNIW0HU9y_oJRgw1aMmFE_82kY",
       authDomain: "gelatokartan.firebaseapp.com",
-      projectId: "gelatokartan",
-      storageBucket: "gelatokartan.appspot.com",
-      messagingSenderId: "598228385917",
-      appId: "1:598228385917:web:fa628432455d5495453114"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+      projectId: "gelatokartan"
+    });
+
+    var db = firebase.firestore();
+
+    async function getData() {
+
+    let gelatobarer = [];
+    await db
+      .collection("gelatobarer")
+      .get()
+      .then((item) =>
+        item.forEach((doc) => {
+          const bar = { ...doc.data(), address: doc.id };
+          gelatobarer.push(bar);
+        }),
+      );
+      gelatobarer.forEach(bar => {
+        console.log(bar)
+        console.log(bar.namn)
+        console.log(bar.latitud)
+        console.log(bar.longitud)
+        var pos = {
+							lat: parseFloat(bar.latitud),
+							lng: parseFloat(bar.longitud)
+							};
+        new google.maps.Marker({
+          map,
+          draggable: false,
+          position: pos,
+          title: bar.namn
+  });
+      })
+    return gelatobarer
+    }
+
+  getData()
+
   </script>
   </body>
 </html>
