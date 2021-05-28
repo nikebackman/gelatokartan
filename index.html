@@ -27,7 +27,7 @@
       }
 
       let map;
-  
+
         function initZoomControl(map) {
           document.querySelector(".zoom-control-in").onclick = function () {
             map.setZoom(map.getZoom() + 1);
@@ -36,7 +36,7 @@
             map.setZoom(map.getZoom() - 1);
           };
         }
-  
+
         function initPanControl(map) {
           document.querySelector(".pan-control-north").onclick = function () {
             map.panBy(0, -100);
@@ -51,7 +51,7 @@
             map.panBy(-100, 0);
           };
         }
-  
+
         function initMap() {
           map = new google.maps.Map(document.getElementById("map"), {
             center: { lat: 59.3498092, lng: 18.0684758 },
@@ -65,7 +65,7 @@
           initPanControl(map);
           getGeoLocation(map);
         }
-  
+
         function getGeoLocation(map) {
           document.querySelector(".buttonHere").onclick = function () {
             hereWindow = new google.maps.InfoWindow();
@@ -76,7 +76,7 @@
                     lat: position.coords.latitude,
                     lng: position.coords.longitude,
                   };
-  
+
                   hereWindow.setPosition(pos);
                   hereWindow.setContent("Min plats");
                   hereWindow.open(map);
@@ -92,7 +92,7 @@
             }
           };
         }
-  
+
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
           infoWindow.setPosition(pos);
           infoWindow.setContent(
@@ -190,7 +190,7 @@
       <p>
         <ons-input id="username" placeholder="Username" modifier="underbar"></ons-input>
       </p>
-  
+
       <p>
         <ons-input
           id="password"
@@ -200,12 +200,12 @@
         >
         </ons-input>
       </p>
-  
+
       <p>
         <ons-button onclick="login()">Sign in</ons-button>
       </p>
       </div>
-  
+
     </ons-page>
 
     <script>
@@ -216,7 +216,7 @@
 
     <template id="home.html">
       <ons-page id="home">
-    
+
         <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
           <div class="center" style="color: white">GELATOKARTAN</div>
           <div class="right">
@@ -227,7 +227,7 @@
         </ons-toolbar>
 
           <div id="map" style="border-radius: 10px"></div>
-          
+
           <div class="control-panel">
             <div class="controls zoom-control">
               <button class="zoom-control-in" title="Zoom In">+</ons-button>
@@ -259,18 +259,24 @@
           <ons-card></ons-card>
        </ons-page>
    </template>
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+   <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
 
-   <template id="profile">
-     <ons-page id="profile">
-      <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
-        <div class="center" style="color: white">PROFIL</div>
-        <div class="left">
-          <ons-back-button></ons-back-button>
-        </div>
-      </ons-toolbar>
+   <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
 
-     </ons-page>
-   </template>
-  </ons-navigator>
+   <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyD6Z4UjiaNIW0HU9y_oJRgw1aMmFE_82kY",
+      authDomain: "gelatokartan.firebaseapp.com",
+      projectId: "gelatokartan",
+      storageBucket: "gelatokartan.appspot.com",
+      messagingSenderId: "598228385917",
+      appId: "1:598228385917:web:fa628432455d5495453114"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
   </body>
 </html>
