@@ -1,0 +1,186 @@
+[
+    {
+      "id": 1,
+      "namn": "StikkiNikki Drottninggatan",
+      "koordinater": "59.336706, 18.058884",
+      "adress": "Drottninggatan 90B, 111 36 Stockholm",
+      "beskrivning": "Not many things are worth taking seriously, but the small joys of life definitively are. We make the best gelato we can using only stuff we would eat ourselves. Our ice cream is made fresh every day in flavours that vary widely with the season and the inspiration of Nikki herself. We believe in doing something good with values beyond just profit.",
+      "öppettider": "Måndag: 11-20; Tisdag: 11-20; Onsdag: 11-20; Torsdag: 11-20; Fredag: 11-20; Lördag: 11-20; Söndag: 11-20"
+    },
+    {
+      "id": 2,
+      "namn": "Gelato Caput Mundi",
+      "koordinater": "59.31376471279848, 18.081148752786262",
+      "adress": "Åsögatan 148, 116 32 Stockholm",
+      "beskrivning": "Vid Axel Landquist Park på Södermalm tillverkar vi varje morgon gelato enligt traditionellt italienskt hantverk med fantastiska råvaror i centrum. Vår metod ”gelato naturale” innebär att vi enbart använder naturliga råvaror - utan tillsatser, aromer och smakförstärkare. \n\nRåvarorna kommer från ekologiska och småskaliga producenter i Sverige och Italien som vi själva står i direkt relation med och som delar vår strävan efter kvalitet och hållbarhet. Pistaschnötter från staden Bronte på Sicilien, hasselnötter från Cravanzana i Piemonte och ekologiska mejeriprodukter direkt från Roslagen samsas med färsk säsongsfrukt.  \n\nVår ambition är att servera dig klassisk gelato som inte bara smakar fantastiskt utan även bygger på respekt för hantverket och naturen. \n\nVälkommen!",
+      "öppettider": "Måndag: Stängt; Tisdag: Stängt; Onsdag: Stängt; Torsdag: 12-18; Fredag: 12-18; Lördag: 12-18; Söndag: 12-18"
+    },
+    {
+      "id": 3,
+      "namn": "Snö",
+      "koordinater": "59.34078476966632, 18.04184730367087",
+      "adress": "Odengatan 92, 113 22 Stockholm",
+      "beskrivning": "SNÖ har blivit en plats där familj och kärlek till mat kommer först. Det var på Sardinien som Kenneth åt en chokladglass vars smak förförde den gamle kocken upp över öronen. Vid det tillfället bestämde han sig för att öppna en egen gelateria.\n\nIdag drivs gelaterian tillsammans med hans sambo Cinzia Edman som ser till att gäster inte går hungriga. Med hennes gener från Italien ligger känslan till bra mat och råvaror nära hjärtat. \n\nÅr 2016 & 2018 har Kenneth Erlandsson blivit utnämnd till svensk glassmästare med juryns motivering “genomgående hög kvalité, tydliga och spännande smakkombinationer samt förföriska konsistenser”.",
+      "öppettider": "Måndag: Stängt; Tisdag: 11-18; Onsdag: 11-18; Torsdag: 11-18; Fredag: 11-18; Lördag: 11-17; Söndag: 11-17"
+    },
+    {
+      "id": 4,
+      "namn": "Gelateria Italiana",
+      "koordinater": "59.33233241770676, 18.029854176923283",
+      "adress": "Drottningholmsvägen 22, 112 42 Stockholm",
+      "beskrivning": "Gelateria Italiana startades år 1979 av Erina Ardizzone-Pansera. Med recept från sin Sicilianska  hovglassmästar-farfar började hon så med glasstillverkningen och Gelateria Italiana kom att bli ett av Stockholms mest kända glasställen. \n\nNumera drivs caféet av Erina själv och hennes familj. Hit söker sig Italien-nostalgiker, den som vill ha en äkta italiensk glass (gelato) , en god espresso eller varför inte något snabbt och enkelt att äta.",
+      "öppettider": "Måndag: 10-18; Tisdag: 10-18; Onsdag: 10-18; Torsdag: 10-18; Fredag: 10-18; Lördag: 11-18; Söndag: 11-17"
+    },
+    {
+      "id": 5,
+      "namn": "StikkiNikki Gamla Stan",
+      "koordinater": "59.32470971039749, 18.068562868827055",
+      "adress": "Stora Nygatan 17, 111 27 Stockholm",
+      "beskrivning": "Not many things are worth taking seriously, but the small joys of life definitively are. We make the best gelato we can using only stuff we would eat ourselves. Our ice cream is made fresh every day in flavours that vary widely with the season and the inspiration of Nikki herself. We believe in doing something good with values beyond just profit.",
+      "öppettider": "Måndag: 11-20; Tisdag: 11-20; Onsdag: 11-20; Torsdag: 11-20; Fredag: 11-20; Lördag: 11-20; Söndag: 11-20"
+    },
+    {
+      "id": 6,
+      "namn": "La Gelateria SoFo",
+      "koordinater": "59.31027578678671, 18.075018524670597",
+      "adress": "Götgatan 90, 118 62 Stockholm",
+      "beskrivning": "Vi älskar kontraster! \n\nMed rötterna i den norrländska myllan, inspiration från våra resor och en förkärlek för Italien föddes drömmen om en alldeles egen italiensk gelateria.\n\nLa Gelateria SoFo erbjuder glass med de långa smakerna hos en äkta gelato som får dig att drömma dig ner till Sicilien och upp till de öppna vidderna i Lappland.\n\nVåren 2020 kommer för alltid att förknippas med svåra tider och nya begrepp som ”lockdown”. Vi valde att se det som en möjlighet. \n\nBesök oss gärna på La Gelateria på Götgatan 90, Stockholm (T-bana Skanstull).",
+      "öppettider": "Måndag: Stängt; Tisdag: Stängt; Onsdag: Stängt; Torsdag: 12-18; Fredag: 12-18; Lördag: 12-17; Söndag: 12-17"
+    },
+    {
+      "id": 7,
+      "namn": "StikkiNikki Götgatan",
+      "koordinater": "59.315832999487434, 18.0723460262994",
+      "adress": "Götgatan 46, 118 26 Stockholm",
+      "beskrivning": "Not many things are worth taking seriously, but the small joys of life definitively are. We make the best gelato we can using only stuff we would eat ourselves. Our ice cream is made fresh every day in flavours that vary widely with the season and the inspiration of Nikki herself. We believe in doing something good with values beyond just profit.",
+      "öppettider": "Måndag: 11-20; Tisdag: 11-20; Onsdag: 11-20; Torsdag: 11-20; Fredag: 11-20; Lördag: 11-20; Söndag: 11-20"
+    },
+    {
+      "id": 8,
+      "namn": "StikkiNikki Mariatorget",
+      "koordinater": "59.31847035059217, 18.06350458184601",
+      "adress": "Mariatorget 1C, 118 48 Stockholm",
+      "beskrivning": "Not many things are worth taking seriously, but the small joys of life definitively are. We make the best gelato we can using only stuff we would eat ourselves. Our ice cream is made fresh every day in flavours that vary widely with the season and the inspiration of Nikki herself. We believe in doing something good with values beyond just profit.",
+      "öppettider": "Måndag: 11-20; Tisdag: 11-20; Onsdag: 11-20; Torsdag: 11-20; Fredag: 11-20; Lördag: 11-20; Söndag: 11-20"
+    },
+    {
+      "id": 9,
+      "namn": "Gelato Bar",
+      "koordinater": "59.33437060680725, 18.062403435490538",
+      "adress": "Hötorget 3, 111 57 Stockholm",
+      "beskrivning": "GELATO BAR Italiensk glassbar med egen tillverkning!\n* Italiensk Glass av naturliga råvaror\n* Glass utan färgämnen\n* Ekologiska mejeriprodukter",
+      "öppettider": "Måndag: 10-18; Tisdag: 10-18; Onsdag: 10-18; Torsdag: 10-18; Fredag: 10-19; Lördag: 10-16; Söndag: Stängt"
+    },
+    {
+      "id": 10,
+      "namn": "StikkiNikki StEriksplan",
+      "koordinater": "59.33916570342596, 18.03782252883477",
+      "adress": "Sankt Eriksplan 9, 113 20 Stockholm",
+      "beskrivning": "Not many things are worth taking seriously, but the small joys of life definitively are. We make the best gelato we can using only stuff we would eat ourselves. Our ice cream is made fresh every day in flavours that vary widely with the season and the inspiration of Nikki herself. We believe in doing something good with values beyond just profit.",
+      "öppettider": "Måndag: 11-20; Tisdag: 11-20; Onsdag: 11-20; Torsdag: 11-20; Fredag: 11-20; Lördag: 11-20; Söndag: 11-20"
+    },
+    {
+      "id": 11,
+      "namn": "Gelateria Pizzeria Amore",
+      "koordinater": "59.3177374830905, 18.03285632669726",
+      "adress": "Långholmsgatan 5, 117 33 Stockholm",
+      "beskrivning": "Välkommen till Gelateria Amore! Vi är en liten glassbar och fik med flera års erfarenhet av att leverera färsk & naturlig Gelato. All vår glass tillverkas av naturliga och lokala råvaror för att garantera kunden en äkta, traditionsenligt tillverkad smakexplosion, perfekt för glassälskaren.\n\nVanligtvis tillverkas vegansk gelato med kokosmjölk eller mjölk producerad av nötter som bas, men hos oss är vegansk gelato en sorbet som är tillverkad med vatten och frukter som bas, då det finns många som är allergiska mot nötter. Undantaget är vår mycket omtyckta och populär veganska choklad gelato är gjort på premium råchokladbas. Förutom detta är tillverkningssättet detsamma när vi gör vår gelato. Hos oss på Gelateria på Långholmsgatan 5 i Stockholm kan du vara säker på att all vår gelato i Stockholm är tillverkad med äkta kärlek och med de bästa råvarorna som marknaden erbjuder.",
+      "öppettider": "Måndag: 12-18; Tisdag: 12-18; Onsdag: 12-18; Torsdag: 12-18; Fredag: 12-22; Lördag: 12-22; Söndag: Stängt"
+    },
+    {
+      "id": 12,
+      "namn": "Gelatokiosken",
+      "koordinater": "59.32651871400198, 18.04143159457108",
+      "adress": "Norr Mälarstrand 36, 112 21 Stockholm",
+      "beskrivning": "In these neighborhood places, amidst friends and shared conversations, we write the stories of our town.\n\nGelatokiosken is a local gathering place where we cater a selection of the best treats, engage our town youth in business, and share a love of good things with our friends.\n\nWe’re located in Kungsholmen, at Norr Mälarstrand a boulevard convenient to walkers, riders and drivers alike. Come say hello and taste the changing mix of small batch ice creams, coffees and treats!\n\nWhat's a better way to cool down than with a cone of delicious ice cream? Or cold water, or a nice cup of coffee? \n\nSlow down and enjoy life. We offer you great scenery when stopping by us.\n\nOh! These days we are open until late. The nice and warm evenings make us do so. \n\nFollow us @gelatokiosken or tag us when you do your Instagram moments #gelatokiosken",
+      "öppettider": "Måndag: 11-19; Tisdag: 11-19; Onsdag: 11-19; Torsdag: 11-19; Fredag: 11-19; Lördag: 11-19; Söndag: 11-19"
+    },
+    {
+      "id": 13,
+      "namn": "Kennys Gelato Djurgården",
+      "koordinater": "59.32498120657062, 18.09671519154959",
+      "adress": "Djurgårdsvägen 68, 115 21 Stockholm",
+      "beskrivning": "Mitt intresse för glass har funnits sen barnsben och så långt jag kan minnas så har jag alltid älskat glass. Kärleken nådde dock en ny nivå när jag hösten 2018 gick en gelatomästarutbildning anordnad av Carpigiani Gelato University och blev frälst. Jag började direkt undersöka om det fanns en lämplig lokal ledig här nere vid det nybyggda kajområdet i Tollare, i området där vi också bor.\n\nLite mindre än ett år senare öppnade jag alltså Kennys Gelato vid Tollare Marina i Nacka. Varje morgon gör jag dagsfärsk gelato och sorbeter.\nDet som skiljer den italienska gelaton från vår svenska gräddglass, är att gelaton är mjölkbaserad och innehåller mindre fett, socker och luft.\n\nSmakerna känns rena och intensiva och innehåller inga färgämnen. Min gelato är fullproppad med riktiga råvaror, såsom färska hallon, banan eller citroner. Vi har flera gluten- och laktosfria varianter. Min målsättning är att oavsett vilken av de 12 smakerna du väljer så ska du få en smakupplevelse i världsklass. Självklart kan du även köpa med dig glass hem i våra praktiska take away-lådor.\n\nKennys Gelato är ett familjeföretag. Min sambo Mari, dotter Olivia och son Oskar är alla involverade i att utveckla nya smaker, ta hand om kunder och sprida glädje. Det känns också extra roligt att min kära mor också är med på ett hörn fast hon inte finns hos oss längre. Arvet som hon lämnade efter sig när hon gick bort för cirka två år sen, har kommit väl till pass för att täcka alla uppstartskostnader.\n\nVarmt välkomna till mig och oss!\n\nKärlek,\nKenny",
+      "öppettider": "Stängt för säsongen"
+    },
+    {
+      "id": 14,
+      "namn": "StikkiNikki Nybrogatan",
+      "koordinater": "59.336765082799566, 18.07880367105941",
+      "adress": "Östermalmstorg 43, 114 39 Stockholm",
+      "beskrivning": "Not many things are worth taking seriously, but the small joys of life definitively are. We make the best gelato we can using only stuff we would eat ourselves. Our ice cream is made fresh every day in flavours that vary widely with the season and the inspiration of Nikki herself. We believe in doing something good with values beyond just profit.",
+      "öppettider": "Måndag: 11-20; Tisdag: 11-20; Onsdag: 11-20; Torsdag: 11-20; Fredag: 11-20; Lördag: 11-20; Söndag: 11-20"
+    },
+    {
+      "id": 15,
+      "namn": "Italienaren i Gubbängen",
+      "koordinater": "59.262761518511844, 18.084936397585622",
+      "adress": "Gubbängsvägen 102, 122 45 Enskede",
+      "beskrivning": "EN BIT AV ITALIEN PÅ GUBBÄNGENS TORG\nDet var i glassens hemstad Florens som Andrea Morelli föddes och växte upp. Som 19-åring tog han anställning på den legendariska glassbaren Perché no!... Efter flera års hård skolning av damerna Dina och Laura, som delade med sig av den italienska glassens gedigna hantverk, blev Andrea så småningom delägare.\n\nNär han senare i livet flyttade till Sverige bar han på en dröm om att föra traditionen vidare. Med detta i handen ville Andrea och Lisa skapa en italiensk oas där hela familjen kan känna sig välkommen. Resan började redan 2014 men det är först här i Gubbängen som vi har hittat hem. Vi är italienaren på hörnet där smakupplevelse, kvalitet och glädje kan mötas.\n\nVälkommen hem till oss!",
+      "öppettider": "Måndag: 11-20; Tisdag: 11-20; Onsdag: 11-20; Torsdag: 11-20; Fredag: 11-20; Lördag: 11-20; Söndag: 11-20"
+    },
+    {
+      "id": 16,
+      "namn": "ARYAM",
+      "koordinater": "59.318452423304, 18.07050988380067",
+      "adress": "Sankt Paulsgatan 3, 118 46 Stockholm",
+      "beskrivning": "",
+      "öppettider": "Måndag: Stängt; Tisdag: 12-18; Onsdag: 12-18; Torsdag: 12-18; Fredag: 12-18; Lördag: 12-18; Söndag: 12-17"
+    },
+    {
+      "id": 17,
+      "namn": "Gelato Scarfó",
+      "koordinater": "59.324061664982736, 17.95653392404551",
+      "adress": "Ålstensgatan 12, 167 65 Bromma",
+      "beskrivning": "Vi har tagit med oss Italiens bästa råvaror och blandat med de finaste av svenska produkter. Resultatet är vad vi hoppas ska bli ditt livs bästa gelatoupplevelse.",
+      "öppettider": "Måndag: Stängt; Tisdag: Stängt; Onsdag: 12-18; Torsdag: 12-18; Fredag: 12-18; Lördag: 12-18; Söndag: 12-18"
+    },
+    {
+      "id": 18,
+      "namn": "Place Gelato",
+      "koordinater": "59.307754270018485, 18.078055394205364",
+      "adress": "Ringvägen 108, 116 61 Stockholm",
+      "beskrivning": "",
+      "öppettider": ""
+    },
+    {
+      "id": 19,
+      "namn": "Mjuk Mjuk",
+      "koordinater": "59.348772227699676, 18.048251515633595",
+      "adress": "Hagagatan 37, 113 47 Stockholm",
+      "beskrivning": "Our mission is to create soft gelato that is so creamy, so delicious, there is no going back to the mystery world of commercial mjukglass. We don’t try to faithfully recreate substandard mjukglass. We evolve it. It’s about taking everything forward, having fun and being a little rebellious. We do all this in our tiny shop, making our soft gelato from scratch with natural ingredients, based on Italian craft, with a California spirit that’s globally inspired.\nWe’re passionate about serving some of the best soft gelato around. We’ve already caught the attention of SvD, Jonas Cramby, Edvard Blom, Allt Om Stockholm and others in the media. But it’s you we look forward to serving. So come check us out and taste the difference.",
+      "öppettider": "Måndag: 12-18; Tisdag: 12-18; Onsdag: 12-18; Torsdag: 12-18; Fredag: 12-18; Lördag: 12-18; Söndag: 12-18"
+    },
+    {
+      "id": 20,
+      "namn": "StikkiNikki Hornsbergs Strand",
+      "koordinater": "59.34051648525677, 18.009017610396977",
+      "adress": "Hornsbergs Strand 35, 112 16 Stockholm",
+      "beskrivning": "Not many things are worth taking seriously, but the small joys of life definitively are. We make the best gelato we can using only stuff we would eat ourselves. Our ice cream is made fresh every day in flavours that vary widely with the season and the inspiration of Nikki herself. We believe in doing something good with values beyond just profit.",
+      "öppettider": "Måndag: 11-20; Tisdag: 11-20; Onsdag: 11-20; Torsdag: 11-20; Fredag: 11-20; Lördag: 11-20; Söndag: 11-20"
+    },
+    {
+      "id": 21,
+      "namn": "StikkiNikki Lövängsgatan",
+      "koordinater": "59.3536735865459, 18.08883155232106",
+      "adress": "Lövängsgatan 6, 115 44 Stockholm",
+      "beskrivning": "Not many things are worth taking seriously, but the small joys of life definitively are. We make the best gelato we can using only stuff we would eat ourselves. Our ice cream is made fresh every day in flavours that vary widely with the season and the inspiration of Nikki herself. We believe in doing something good with values beyond just profit.",
+      "öppettider": "Måndag: 11-20; Tisdag: 11-20; Onsdag: 11-20; Torsdag: 11-20; Fredag: 11-20; Lördag: 11-20; Söndag: 11-20"
+    },
+    {
+      "id": 22,
+      "namn": "StikkiNikki Skånegatan",
+      "koordinater": "59.31262445086874, 18.081644022338654",
+      "adress": "Skånegatan 73, 116 37 Stockholm",
+      "beskrivning": "Not many things are worth taking seriously, but the small joys of life definitively are. We make the best gelato we can using only stuff we would eat ourselves. Our ice cream is made fresh every day in flavours that vary widely with the season and the inspiration of Nikki herself. We believe in doing something good with values beyond just profit.",
+      "öppettider": "Måndag: 11-20; Tisdag: 11-20; Onsdag: 11-20; Torsdag: 11-20; Fredag: 11-20; Lördag: 11-20; Söndag: 11-20"
+    },
+    {
+      "id": 23,
+      "namn": "Casa Del Gelato",
+      "koordinater": "59.32503681945367, 18.070293824046853",
+      "adress": "Stortorget, 111 29 Stockholm",
+      "beskrivning": "",
+      "öppettider": ""
+    }
+  ]
