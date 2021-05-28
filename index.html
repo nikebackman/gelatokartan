@@ -258,12 +258,18 @@
 							lat: parseFloat(bar.latitud),
 							lng: parseFloat(bar.longitud)
 							};
-        new google.maps.Marker({
+        var marker = new google.maps.Marker({
           map,
           draggable: false,
           position: pos,
           title: bar.namn
-  });
+        });
+        var infoWindow = new google.maps.InfoWindow({
+          content: bar.namn
+        });
+        marker.addListener('click', function() {
+          infoWindow.open(map, marker)
+          });
       })
     return gelatobarer
     }
