@@ -304,6 +304,9 @@
           var page = event.target;
           if (page.matches('#infoview')) {
             page.querySelector('ons-toolbar .center').innerHTML = storedBar.namn;
+            page.querySelector('ons-card .description').innerHTML = storedBar.beskrivning;
+            page.querySelector('ons-card .adress').innerHTML = storedBar.adress;
+            page.querySelector('ons-card .hours').innerHTML = storedBar.öppettider;
             };
     })})})}
 
