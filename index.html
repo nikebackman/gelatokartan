@@ -291,10 +291,11 @@
           title: bar.namn
         });
         var infoWindow = new google.maps.InfoWindow({
-          content: bar.namn
+          content: `${bar.namn} Klicka för info`
         });
         marker.addListener('click', function() {
           infoWindow.open(map, marker);
+          marker.addListener("click", function() {
           currentBar = bar;
           storedBar = currentBar;
           openPage(infoview);
@@ -307,7 +308,7 @@
             page.querySelector('ons-card .description').innerHTML = storedBar.beskrivning;
             page.querySelector('ons-card .adress').innerHTML = storedBar.adress;
             page.querySelector('ons-card .hours').innerHTML = storedBar.öppettider;
-            };
+            };})
     })})})}
 
     getData();
