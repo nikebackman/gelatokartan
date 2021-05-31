@@ -217,9 +217,29 @@
       <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
         <div id="gelato-bar-name" class="center" style="color: white">Namn</div>
         <div class="left">
-          <ons-back-button></ons-back-button>
+          <ons-back-button>
+          </ons-back-button>
         </div>
       </ons-toolbar>
+      <div style="padding: 20px;">
+      <ons-card>
+        <div class="description" style="color:#DE5571; font: Helvetica;">Beskrivning</div>
+      </ons-card>
+      <ons-card> 
+        <div class="adress" style="color:#DE5571; font: Helvetica;">Adress</div>
+      </ons-card>
+      <ons-card>
+        <div class="hours" style="color:#DE5571; font: Helvetica;">Öppettider</div>
+      </ons-card>
+      <p style="font-size: x-large; font-weight: bolder; color:#DE5571;">
+        OMDÖMEN
+      </p>
+      <ons-card>
+        <div class="comments">Kommentarer</div>
+      </ons-card>
+    </div>
+    
+
       <script>
         ons.getScriptPage().onInit = function() {
           console.log('This is a lifecycle hook!', this);
@@ -270,13 +290,16 @@
           title: bar.namn
         });
         var infoWindow = new google.maps.InfoWindow({
-          content: bar.namn
+          content: `${bar.namn} Klicka för info`
         });
         marker.addListener('click', function() {
           infoWindow.open(map, marker);
-          currentBar = bar;
+
+          marker.addListener("click", function() {
+            currentBar = bar;
           storedBar = currentBar;
-          
+          console.log(storedBar)
+
           openPage(infoview);
           document.addEventListener('init', function(event) {
           console.log('This is a lifecycle event!', event.target);
@@ -284,7 +307,11 @@
           var page = event.target;
           if (page.matches('#infoview')) {
             page.querySelector('ons-toolbar .center').innerHTML = storedBar.namn;
+            page.querySelector('ons-card .description').innerHTML = storedBar.beskrivning
+            page.querySelector('ons-card .adress').innerHTML = storedBar.adress
+            page.querySelector('ons-card .hours').innerHTML = storedBar.öppettider
             };
+          })
           })})})}
   
     //return gelatobarer
