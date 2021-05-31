@@ -11,7 +11,6 @@
       href="https://unpkg.com/onsenui/css/onsen-css-components.min.css"
     />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src="./index.js"></script>
     <script
       src="https://maps.googleapis.com/maps/api/js?callback=initMap&libraries=&v=weekly"
       async
@@ -131,7 +130,7 @@
       <ons-page id="home">
 
         <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
-          <div class="center" style="color: white">GELATOKARTAN</div>
+          <div id="gelatokartan-heading" class="center" style="color: white">GELATOKARTAN</div>
           <div class="right">
             <ons-toolbar-button onclick="openPage(profile)">
               <ons-icon icon="md-account" style="color: white;"></ons-icon>
@@ -216,26 +215,31 @@
    <template id="infoview">
      <ons-page id="infoview">
       <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
-        <div class="center" style="color: white">TITEL</div>
+        <div id="gelato-bar-name" class="center" style="color: white">Namn</div>
         <div class="left">
           <ons-back-button></ons-back-button>
         </div>
       </ons-toolbar>
      </ons-page>
    </template>
-
+   <script src="./index.js"></script>
    <!-- The core Firebase JS SDK is always required and must be listed first -->
    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
 
    <script>
+     window.onload=function(){
     firebase.initializeApp({
       apiKey: "AIzaSyD6Z4UjiaNIW0HU9y_oJRgw1aMmFE_82kY",
       authDomain: "gelatokartan.firebaseapp.com",
       projectId: "gelatokartan"
     });
 
-    var db = firebase.firestore();
+    let db = firebase.firestore();
+
+    //let storedBar = null;
+    //console.log(storedBar)
+    
 
     async function getData() {
 
@@ -250,10 +254,6 @@
         }),
       );
       gelatobarer.forEach(bar => {
-        console.log(bar)
-        console.log(bar.namn)
-        console.log(bar.latitud)
-        console.log(bar.longitud)
         var pos = {
 							lat: parseFloat(bar.latitud),
 							lng: parseFloat(bar.longitud)
@@ -268,14 +268,27 @@
           content: bar.namn
         });
         marker.addListener('click', function() {
-          infoWindow.open(map, marker)
+          infoWindow.open(map, marker);
+          currentBar = bar;
+          storedBar = currentBar;
+          openPage(infoview);
+          return storedBar;
+          document.getElementById("gelato-bar-name").innerHTML = "hallo";
+          
           });
       })
-    return gelatobarer
+    //return gelatobarer
     }
+    storedBar=null;
 
-  getData()
+    currentBar=getData();
+    console.log(currentBar.namn)
+    //document.getElementById("gelato-bar-name").onload = function () {myFunction()};
 
+    //unction myFunction() {
+      //document.getElementById("gelatokartan-heading").innerHTML = "hejsan";
+    //}
+    }
   </script>
   </body>
 </html>
