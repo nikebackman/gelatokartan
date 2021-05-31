@@ -327,6 +327,49 @@
         console.error('Error writing new message to database', error);
       });
     }
+
+    // Loads chat messages history and listens for upcoming ones.
+    function loadMessages() {
+    // Create the query to load the last 12 messages and listen for new ones.
+      var query = firebase.firestore()
+                  .collection('reviews')
+                  .orderBy('timestamp', 'desc')
+                  
+      console.log(query)
+  
+    // Start listening to the query.
+       query.onSnapshot(function(snapshot) {
+         snapshot.docChanges().forEach(function(change) {
+         if (change.type === 'removed') {
+          deleteMessage(change.doc.id);
+         } else {
+           var message = change.doc.data();
+          displayMessage(change.doc.id, message.timestamp, message.namn,
+                       message.text);
+         } 
+       });
+     });
+    }
+
+    loadMessages()
+
+    // Delete a Message from the UI.
+    function deleteMessage(id) {
+      var div = document.getElementById(id);
+      // If an element for that message exists we delete it.
+      if (div) {
+         div.parentNode.removeChild(div);
+      }
+    }
+
+  // Displays a Message in the UI.
+  function displayMessage(id, timestamp, name, text) {
+    const newDiv = document.createElement("div");
+    const newContent = document.createTextNode(text);
+    newDiv.appendChild(newContent);
+    var messageContainer = document.getElementById("comments");
+    messageContainer.appendChild(newDiv);
+}
   </script>
   </body>
 </html>
