@@ -220,6 +220,11 @@
           <ons-back-button></ons-back-button>
         </div>
       </ons-toolbar>
+      <script>
+        ons.getScriptPage().onInit = function() {
+          console.log('This is a lifecycle hook!', this);
+        };
+      </script>
      </ons-page>
    </template>
    <script src="./index.js"></script>
@@ -271,14 +276,19 @@
           infoWindow.open(map, marker);
           currentBar = bar;
           storedBar = currentBar;
-          openPage(infoview);
-          var x = document.getElementById("gelato-bar-name");
-          x.querySelector(".example").innerHTML = "Hello"
           
-          });
-      })
+          openPage(infoview);
+          document.addEventListener('init', function(event) {
+          console.log('This is a lifecycle event!', event.target);
+
+          var page = event.target;
+          if (page.matches('#infoview')) {
+            page.querySelector('ons-toolbar .center').innerHTML = storedBar.namn;
+            };
+          })})})}
+  
     //return gelatobarer
-    }
+    
     storedBar=null;
 
     currentBar=getData();
