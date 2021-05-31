@@ -233,7 +233,7 @@
    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
 
    <script>
-     window.onload=function(){
+  
     firebase.initializeApp({
       apiKey: "AIzaSyD6Z4UjiaNIW0HU9y_oJRgw1aMmFE_82kY",
       authDomain: "gelatokartan.firebaseapp.com",
@@ -241,10 +241,6 @@
     });
 
     let db = firebase.firestore();
-
-    //let storedBar = null;
-    //console.log(storedBar)
-    
 
     async function getData() {
 
@@ -276,7 +272,6 @@
           infoWindow.open(map, marker);
           currentBar = bar;
           storedBar = currentBar;
-          
           openPage(infoview);
           document.addEventListener('init', function(event) {
           console.log('This is a lifecycle event!', event.target);
@@ -285,19 +280,20 @@
           if (page.matches('#infoview')) {
             page.querySelector('ons-toolbar .center').innerHTML = storedBar.namn;
             };
-          })})})}
-  
-    //return gelatobarer
-    
-    storedBar=null;
+    })})})}
 
-    currentBar=getData();
-    console.log(currentBar.namn)
-    //document.getElementById("gelato-bar-name").onload = function () {myFunction()};
+    getData();
 
-    //unction myFunction() {
-      //document.getElementById("gelatokartan-heading").innerHTML = "hejsan";
-    //}
+    function saveMessage(messageText) {
+      // Add a new message entry to the database.
+      return firebase.firestore().collection('messages').add({
+        name: "testnamn",
+        text: messageText,
+        //profilePicUrl: getProfilePicUrl(),
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      }).catch(function(error) {
+        console.error('Error writing new message to database', error);
+      });
     }
   </script>
   </body>
