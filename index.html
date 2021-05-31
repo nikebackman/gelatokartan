@@ -193,7 +193,7 @@
    </template>
 
    <template id="profile">
-     <ons-page id="profile"> 
+     <ons-page id="profile">
       <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
         <div class="center" style="color: white">PROFIL</div>
         <div class="left">
@@ -217,15 +217,14 @@
       <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
         <div id="gelato-bar-name" class="center" style="color: white">Namn</div>
         <div class="left">
-          <ons-back-button>
-          </ons-back-button>
+          <ons-back-button></ons-back-button>
         </div>
       </ons-toolbar>
       <div style="padding: 20px;">
       <ons-card>
         <div class="description" style="color:#DE5571; font: Helvetica;">Beskrivning</div>
       </ons-card>
-      <ons-card> 
+      <ons-card>
         <div class="adress" style="color:#DE5571; font: Helvetica;">Adress</div>
       </ons-card>
       <ons-card>
@@ -243,7 +242,7 @@
     </p>
     </div>
     </div>
-    
+
 
       <script>
         ons.getScriptPage().onInit = function() {
@@ -258,7 +257,7 @@
    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
 
    <script>
-     window.onload=function(){
+
     firebase.initializeApp({
       apiKey: "AIzaSyD6Z4UjiaNIW0HU9y_oJRgw1aMmFE_82kY",
       authDomain: "gelatokartan.firebaseapp.com",
@@ -267,9 +266,6 @@
 
     let db = firebase.firestore();
 
-    //let storedBar = null;
-    //console.log(storedBar)
-    
 
     async function getData() {
 
@@ -295,16 +291,12 @@
           title: bar.namn
         });
         var infoWindow = new google.maps.InfoWindow({
-          content: `${bar.namn} Klicka för info`
+          content: bar.namn
         });
         marker.addListener('click', function() {
           infoWindow.open(map, marker);
-
-          marker.addListener("click", function() {
-            currentBar = bar;
+          currentBar = bar;
           storedBar = currentBar;
-          console.log(storedBar)
-
           openPage(infoview);
           document.addEventListener('init', function(event) {
           console.log('This is a lifecycle event!', event.target);
@@ -312,24 +304,21 @@
           var page = event.target;
           if (page.matches('#infoview')) {
             page.querySelector('ons-toolbar .center').innerHTML = storedBar.namn;
-            page.querySelector('ons-card .description').innerHTML = storedBar.beskrivning
-            page.querySelector('ons-card .adress').innerHTML = storedBar.adress
-            page.querySelector('ons-card .hours').innerHTML = storedBar.öppettider
             };
-          })
-          })})})}
-  
-    //return gelatobarer
-    
-    storedBar=null;
+    })})})}
 
-    currentBar=getData();
-    console.log(currentBar.namn)
-    //document.getElementById("gelato-bar-name").onload = function () {myFunction()};
+    getData();
 
-    //unction myFunction() {
-      //document.getElementById("gelatokartan-heading").innerHTML = "hejsan";
-    //}
+    function saveMessage(messageText) {
+      // Add a new message entry to the database.
+      return firebase.firestore().collection('messages').add({
+        name: "testnamn",
+        text: messageText,
+        //profilePicUrl: getProfilePicUrl(),
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      }).catch(function(error) {
+        console.error('Error writing new message to database', error);
+      });
     }
   </script>
   </body>
