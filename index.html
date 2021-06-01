@@ -336,6 +336,7 @@
       // Sign into Firebase using popup auth & Google as the identity provider.
       var provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider);
+      initFirebaseAuth()
     }
 
     // Signs-out.
@@ -455,8 +456,6 @@
     var signOutButtonElement = document.getElementById('sign-out');
     //var signInSnackbarElement = document.getElementById('must-signin-snackbar');
 
-    initFirebaseAuth()
-    
   </script>
   </body>
 </html>
