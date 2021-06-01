@@ -185,9 +185,6 @@
         <ons-button id="sign-in" style="margin-top: 20px;" onclick="signIn()">
           Sign-in with Google
         </ons-button>
-        <ons-button id="sign-in" style="margin-top: 20px;" onclick="getUserName()">
-          Vem är inloggad!
-        </ons-button>
       </div>
 
       <div hidden id="loggedin">
@@ -389,14 +386,14 @@
         document.getElementById("loggedin").removeAttribute("hidden")
 
         // Hide sign-in button.
-        signInButtonElement.setAttribute('hidden', 'true');
+        document.getElementById("sign-in").setAttribute('hidden', 'true');
 
       } else { // User is signed out!
         // Hide user's profile and sign-out button.
         document.getElementById("loggedin").setAttribute('hidden', 'true');
 
         // Show sign-in button.
-        document.getElementById("loggedin").removeAttribute('hidden');
+        document.getElementById("sign-in").removeAttribute('hidden');
       }
     }
 
