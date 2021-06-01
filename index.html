@@ -181,22 +181,19 @@
         </div>
       </ons-toolbar>
 
-      <div style="text-align: center;">
+      <div id="sign-in"style="text-align: center;">
         <ons-button id="sign-in" style="margin-top: 20px;" onclick="signIn()">
           Sign-in with Google
-        </ons-button>
-        <ons-button style="margin-top: 20px;" onclick="getUserName()">
-          Vem är inloggad!
         </ons-button>
       </div>
 
       <div hidden id="loggedin">
         <div id="user-pic"></div>
           <ons-card id="profileinfo">
-            <h2 id="user-name" class="card__title"></h2>
+            <h2 id="user-name" class="card__title" style="color:#DE5571;"></h2>
           </ons-card>
         <div style="text-align: center;">
-          <ons-button id="sign-out" style="display: block; margin: 0 auto;">
+          <ons-button id="sign-out" style="margin-top: 20px;" onclick="signOut()">
             Sign-out
           </ons-button>
         </div>
@@ -363,7 +360,7 @@
     const newDiv = document.createElement("div");
     const newContent = document.createTextNode(text);
     newDiv.appendChild(newContent);}
-    
+
     // Returns the signed-in user's display name.
     function getUserName() {
       console.log(firebase.auth().currentUser.displayName);
@@ -389,14 +386,17 @@
         document.getElementById("loggedin").removeAttribute("hidden")
 
         // Hide sign-in button.
-        signInButtonElement.setAttribute('hidden', 'true');
+        document.getElementById("sign-in").setAttribute('hidden', 'true');
+
+        // Set 
+        document.getElementById("user-name").textContent = getUserName()
 
       } else { // User is signed out!
         // Hide user's profile and sign-out button.
         document.getElementById("loggedin").setAttribute('hidden', 'true');
 
         // Show sign-in button.
-        document.getElementById("loggedin").removeAttribute('hidden');
+        document.getElementById("sign-in").removeAttribute('hidden');
       }
     }
 
@@ -406,9 +406,9 @@
           var query = firebase.firestore()
                       .collection('reviews')
                       .orderBy('timestamp', 'desc')
-                      
+
           console.log(query)
-      
+
         // Start listening to the query.
           query.onSnapshot(function(snapshot) {
             snapshot.docChanges().forEach(function(change) {
@@ -418,7 +418,7 @@
               var message = change.doc.data();
               displayMessage(change.doc.id, message.timestamp, message.namn,
                           message.text);
-            } 
+            }
           });
         });
         }
