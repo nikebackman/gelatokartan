@@ -360,7 +360,7 @@
     const newDiv = document.createElement("div");
     const newContent = document.createTextNode(text);
     newDiv.appendChild(newContent);}
-    
+
     // Returns the signed-in user's display name.
     function getUserName() {
       console.log(firebase.auth().currentUser.displayName);
@@ -403,9 +403,9 @@
           var query = firebase.firestore()
                       .collection('reviews')
                       .orderBy('timestamp', 'desc')
-                      
+
           console.log(query)
-      
+
         // Start listening to the query.
           query.onSnapshot(function(snapshot) {
             snapshot.docChanges().forEach(function(change) {
@@ -415,7 +415,7 @@
               var message = change.doc.data();
               displayMessage(change.doc.id, message.timestamp, message.namn,
                           message.text);
-            } 
+            }
           });
         });
         }
