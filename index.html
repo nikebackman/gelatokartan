@@ -232,10 +232,10 @@
       </ons-card>
       <div style="text-align: center; margin-top: 30px;">
         <p>
-      <ons-input placeholder="Lämna ett omdöme!" float></ons-input>
+      <ons-input id="review-input" placeholder="Lämna ett omdöme!" float></ons-input>
     </p>
     <p style="margin-top: 30px;">
-      <ons-button>Kommentera</ons-button>
+      <ons-button onclick=saveMessage()>Kommentera</ons-button>
     </p>
     </div>
     </div>
@@ -316,12 +316,12 @@
 
     getData();
 
-    function saveMessage(messageText) {
+    function saveMessage() {
       // Add a new message entry to the database.
-      return firebase.firestore().collection('messages').add({
+      var messageText = document.getElementById('review-input').value;
+      return firebase.firestore().collection('reviews').add({
         name: "testnamn",
         text: messageText,
-        //profilePicUrl: getProfilePicUrl(),
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       }).catch(function(error) {
         console.error('Error writing new message to database', error);
