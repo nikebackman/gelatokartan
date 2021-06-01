@@ -1,16 +1,3 @@
-/*const login = () => {
-  const username = document.querySelector("#username").value;
-  const password = document.querySelector("#password").value;
-
-  if (username === "user" && password === "pass") {
-    // call the navigator to move to the new page
-    const navigator = document.querySelector("#navigator");
-    navigator.resetToPage("home");
-  } else {
-    ons.notification.alert("Wrong username/password combination");
-  }
-};*/
-
 let map;
 
 function initZoomControl(map) {
@@ -39,8 +26,8 @@ function initPanControl(map) {
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 59.3498092, lng: 18.0684758 },
-    zoom: 15,
+    center: { lat: 59.334591, lng: 18.06324 },
+    zoom: 12,
     mapTypeId: "satellite",
     disableDefaultUI: true,
   });
@@ -49,6 +36,25 @@ function initMap() {
   initZoomControl(map);
   initPanControl(map);
   getGeoLocation(map);
+  setLocation(map);
+}
+
+function setLocation(map) {
+  document.querySelector(".mjuk").onclick = function () {
+    var pos = { lat: 59.348772227699676, lng: 18.048251515633595 };
+    console.log("clicking this button");
+    map.setCenter(pos);
+  };
+  document.querySelector(".sno").onclick = function () {
+    var pos = { lat: 59.234238, lng: 18.2231558 };
+    console.log("clicking this button");
+    map.setCenter(pos);
+  };
+  document.querySelector(".scarfo").onclick = function () {
+    var pos = { lat: 59.234238, lng: 18.2231558 };
+    console.log("clicking this button");
+    map.setCenter(pos);
+  };
 }
 
 function getGeoLocation(map) {

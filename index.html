@@ -44,7 +44,7 @@
       }
 
       .controls {
-        font-size: 28px; /* this adjusts the size of all the controls */
+        font-size: 28px;
         font-weight: 300;
         margin-top: 15px;
         text-align: center;
@@ -97,29 +97,6 @@
   <body>
     <ons-navigator id="navigator" page="home.html"></ons-navigator>
 
-    <!--<ons-page>
-      <div style="text-align: center; margin-top: 200px">
-      <p>
-        <ons-input id="username" placeholder="Username" modifier="underbar"></ons-input>
-      </p>
-
-      <p>
-        <ons-input
-          id="password"
-          placeholder="Password"
-          type="password"
-          modifier="underbar"
-        >
-        </ons-input>
-      </p>
-
-      <p>
-        <ons-button onclick="login()">Sign in</ons-button>
-      </p>
-      </div>
-
-    </ons-page>-->
-
     <script>
       const openPage = (page) => {
         document.getElementById('navigator').pushPage(page.id);
@@ -171,20 +148,23 @@
           </svg>
 
           <div>
-            <div class="card" >
+            <ons-card class="mjuk">
               <h2 class="card__title" style="color:#DE5571; font: Helvetica; font-weight:bolder">Mjuk Mjuk</h2>
               <div class="card__content">Text</div>
-            </div>
-            <div>
-              <div class="card">
+            </ons-card>
+          </div>
+          <div>
+            <ons-card class="sno">
                 <h2 class="card__title" style="color:#DE5571; font: Helvetica; font-weight:bolder">SNÖ</h2>
                 <div class="card__content">Text</div>
-              </div>
-              <div>
-                <div class="card">
+              </ons-card>
+            </div>
+            <div>
+              <ons-card class="scarfo">
                   <h2 class="card__title" style="color:#DE5571; font: Helvetica; font-weight:bolder">Scarfo</h2>
                   <div class="card__content">Text</div>
-                </div>
+                </ons-page>
+              </div>
         </div>
         <footer>
           <svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340 200"><defs><style>.cls-1{fill:none;}.cls-2{fill:#f6c2a4;}.cls-3{fill:url(#Nytt_mönster);}</style><pattern id="Nytt_mönster" data-name="Nytt mönster" width="340" height="200" patternUnits="userSpaceOnUse" viewBox="0 0 340 200"><rect class="cls-1" width="340" height="200"/><rect class="cls-2" width="340" height="146.68"/><path class="cls-2" d="M.35,146.68c10.11-1.28,21.33,38.28,36,38.26,16,0,19.34-37.86,33.67-38.26s20.23,34.44,35.24,34.37,20.42-34.44,35.24-34.37c14,.07,18.54,30.66,33.68,32,13.79,1.25,19.18-32.6,31.32-32,11.82.55,19.88,32.71,33.86,31.54,15.43-1.29,12-30.21,28.61-31.46,16.13-1.22,23.9,29.6,41.49,29.7,12.18.07,20.08-29.49,30.17-29.7"/></pattern></defs><rect class="cls-3" width="340" height="200"/></svg>
@@ -200,15 +180,29 @@
           <ons-back-button></ons-back-button>
         </div>
       </ons-toolbar>
-      <div>
-        <div class="card">
-          <h2 class="card__title">Användarnamn</h2>
-          <div class="card__content">Text</div>
-        </div>
-        <div>
-          <footer>
-            <svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340 200"><defs><style>.cls-1{fill:none;}.cls-2{fill:#f6c2a4;}.cls-3{fill:url(#Nytt_mönster);}</style><pattern id="Nytt_mönster" data-name="Nytt mönster" width="340" height="200" patternUnits="userSpaceOnUse" viewBox="0 0 340 200"><rect class="cls-1" width="340" height="200"/><rect class="cls-2" width="340" height="146.68"/><path class="cls-2" d="M.35,146.68c10.11-1.28,21.33,38.28,36,38.26,16,0,19.34-37.86,33.67-38.26s20.23,34.44,35.24,34.37,20.42-34.44,35.24-34.37c14,.07,18.54,30.66,33.68,32,13.79,1.25,19.18-32.6,31.32-32,11.82.55,19.88,32.71,33.86,31.54,15.43-1.29,12-30.21,28.61-31.46,16.13-1.22,23.9,29.6,41.49,29.7,12.18.07,20.08-29.49,30.17-29.7"/></pattern></defs><rect class="cls-3" width="340" height="200"/></svg>
-          </footer>
+
+      <div style="text-align: center;">
+        <ons-button id="sign-in" style="margin-top: 20px;" onclick="signIn()">
+          Sign-in with Google
+        </ons-button>
+      </div>
+
+      <div hidden id="loggedin">
+        <div id="user-pic"></div>
+       <ons-card id="profileinfo">
+          <h2 id="user-name" class="card__title"></h2>
+        </ons-card>
+        <div style="text-align: center;">
+        <ons-button id="sign-out" style="display: block; margin: 0 auto;">
+          Sign-out
+        </ons-button>
+      </div>
+      </div>
+
+      <footer>
+        <svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340 200"><defs><style>.cls-1{fill:none;}.cls-2{fill:#f6c2a4;}.cls-3{fill:url(#Nytt_mönster);}</style><pattern id="Nytt_mönster" data-name="Nytt mönster" width="340" height="200" patternUnits="userSpaceOnUse" viewBox="0 0 340 200"><rect class="cls-1" width="340" height="200"/><rect class="cls-2" width="340" height="146.68"/><path class="cls-2" d="M.35,146.68c10.11-1.28,21.33,38.28,36,38.26,16,0,19.34-37.86,33.67-38.26s20.23,34.44,35.24,34.37,20.42-34.44,35.24-34.37c14,.07,18.54,30.66,33.68,32,13.79,1.25,19.18-32.6,31.32-32,11.82.55,19.88,32.71,33.86,31.54,15.43-1.29,12-30.21,28.61-31.46,16.13-1.22,23.9,29.6,41.49,29.7,12.18.07,20.08-29.49,30.17-29.7"/></pattern></defs><rect class="cls-3" width="340" height="200"/></svg>
+      </footer>
+
      </ons-page>
    </template>
 
@@ -246,18 +240,23 @@
     </div>
     </div>
 
-
       <script>
         ons.getScriptPage().onInit = function() {
           console.log('This is a lifecycle hook!', this);
         };
       </script>
+
+      <footer>
+        <svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340 200"><defs><style>.cls-1{fill:none;}.cls-2{fill:#f6c2a4;}.cls-3{fill:url(#Nytt_mönster);}</style><pattern id="Nytt_mönster" data-name="Nytt mönster" width="340" height="200" patternUnits="userSpaceOnUse" viewBox="0 0 340 200"><rect class="cls-1" width="340" height="200"/><rect class="cls-2" width="340" height="146.68"/><path class="cls-2" d="M.35,146.68c10.11-1.28,21.33,38.28,36,38.26,16,0,19.34-37.86,33.67-38.26s20.23,34.44,35.24,34.37,20.42-34.44,35.24-34.37c14,.07,18.54,30.66,33.68,32,13.79,1.25,19.18-32.6,31.32-32,11.82.55,19.88,32.71,33.86,31.54,15.43-1.29,12-30.21,28.61-31.46,16.13-1.22,23.9,29.6,41.49,29.7,12.18.07,20.08-29.49,30.17-29.7"/></pattern></defs><rect class="cls-3" width="340" height="200"/></svg>
+      </footer>
      </ons-page>
    </template>
    <script src="./index.js"></script>
    <!-- The core Firebase JS SDK is always required and must be listed first -->
    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+  <!-- <script src="/https://www.gstatic.com/firebase/init.js"></script> -->
 
    <script>
 
@@ -301,6 +300,7 @@
           marker.addListener("click", function() {
           currentBar = bar;
           storedBar = currentBar;
+          console.log(storedBar)
           openPage(infoview);
           document.addEventListener('init', function(event) {
           console.log('This is a lifecycle event!', event.target);
@@ -327,6 +327,74 @@
         console.error('Error writing new message to database', error);
       });
     }
+
+        // Signs-in.
+    function signIn() {
+      // Sign into Firebase using popup auth & Google as the identity provider.
+      var provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider);
+    }
+
+    // Signs-out.
+    function signOut() {
+      // Sign out of Firebase.
+      firebase.auth().signOut();
+    }
+
+    // Initiate Firebase Auth.
+    function initFirebaseAuth() {
+      // Listen to auth state changes.
+      firebase.auth().onAuthStateChanged(authStateObserver);
+    }
+
+    // Returns the signed-in user's profile pic URL.
+    function getProfilePicUrl() {
+      return (
+        firebase.auth().currentUser.photoURL || "/images/profile_placeholder.png"
+      );
+    }
+
+    // Returns the signed-in user's display name.
+    function getUserName() {
+      return firebase.auth().currentUser.displayName;
+    }
+
+    // Returns true if a user is signed-in.
+    function isUserSignedIn() {
+      return !!firebase.auth().currentUser;
+    }
+
+    function authStateObserver(user) {
+  if (user) { // User is signed in!
+    // Get the signed-in user's profile pic and name.
+    var profilePicUrl = getProfilePicUrl();
+    var userName = getUserName();
+
+    // Set the user's profile pic and name.
+    userPicElement.style.backgroundImage = 'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')';
+    userNameElement.textContent = userName;
+
+    // Show user's profile and sign-out button.
+    userNameElement.removeAttribute('hidden');
+    userPicElement.removeAttribute('hidden');
+    signOutButtonElement.removeAttribute('hidden');
+
+    // Hide sign-in button.
+    signInButtonElement.setAttribute('hidden', 'true');
+
+    // We save the Firebase Messaging Device token and enable notifications.
+    saveMessagingDeviceToken();
+  } else { // User is signed out!
+    // Hide user's profile and sign-out button.
+    userNameElement.setAttribute('hidden', 'true');
+    userPicElement.setAttribute('hidden', 'true');
+    signOutButtonElement.setAttribute('hidden', 'true');
+
+    // Show sign-in button.
+    signInButtonElement.removeAttribute('hidden');
+  }
+}
+
   </script>
   </body>
 </html>
