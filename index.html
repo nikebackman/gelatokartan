@@ -439,9 +439,15 @@
         const newDiv = document.createElement("div");
         const newContent = document.createTextNode(text);
         newDiv.appendChild(newContent);
-        var messageContainer = document.getElementById("comments");
-        messageContainer.appendChild(newDiv);
-    }
+        document.addEventListener('init', function(event) {
+          console.log('This is a lifecycle event!', event.target);
+
+          var page = event.target;
+          if (page.matches('#infoview')) {
+            var messageContainer = document.querySelector('ons-card .comments');
+            messageContainer.appendChild(newDiv);
+            };})
+      }
 
     var messageListElement = document.getElementById('messages');
     var messageFormElement = document.getElementById('message-form');
