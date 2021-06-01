@@ -354,8 +354,15 @@
       );
     }
 
+  // Displays a Message in the UI.
+  function displayMessage(id, timestamp, name, text) {
+    const newDiv = document.createElement("div");
+    const newContent = document.createTextNode(text);
+    newDiv.appendChild(newContent);}
+    
     // Returns the signed-in user's display name.
     function getUserName() {
+      console.log(firebase.auth().currentUser.displayName);
       return firebase.auth().currentUser.displayName;
     }
 
