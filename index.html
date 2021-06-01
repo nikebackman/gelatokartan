@@ -192,7 +192,7 @@
        <ons-card id="profileinfo">
           <h2 id="user-name" class="card__title"></h2>
         </ons-card>
-        <div style="text-align: center;">
+      <div style="text-align: center;">
         <ons-button id="sign-out" style="display: block; margin: 0 auto;">
           Sign-out
         </ons-button>
@@ -228,7 +228,7 @@
         OMDÖMEN
       </p>
       <ons-card>
-        <div class="comments">Kommentarer</div>
+        <div class="comments">Inga kommentarer än</div>
       </ons-card>
       <div style="text-align: center; margin-top: 30px;">
         <p>
@@ -378,6 +378,7 @@
     userNameElement.removeAttribute('hidden');
     userPicElement.removeAttribute('hidden');
     signOutButtonElement.removeAttribute('hidden');
+    document.getElementById("loggedin").removeAttribute("hidden")
 
     // Hide sign-in button.
     signInButtonElement.setAttribute('hidden', 'true');
@@ -437,6 +438,19 @@
         var messageContainer = document.getElementById("comments");
         messageContainer.appendChild(newDiv);
     }
+
+    var messageListElement = document.getElementById('messages');
+    var messageFormElement = document.getElementById('message-form');
+    var messageInputElement = document.getElementById('message');
+    var submitButtonElement = document.getElementById('submit');
+    var imageButtonElement = document.getElementById('submitImage');
+    var imageFormElement = document.getElementById('image-form');
+    var mediaCaptureElement = document.getElementById('mediaCapture');
+    var userPicElement = document.getElementById('user-pic');
+    var userNameElement = document.getElementById('user-name');
+    var signInButtonElement = document.getElementById('sign-in');
+    var signOutButtonElement = document.getElementById('sign-out');
+    //var signInSnackbarElement = document.getElementById('must-signin-snackbar');
 
   </script>
   </body>
