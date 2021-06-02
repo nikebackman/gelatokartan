@@ -188,7 +188,7 @@
       </div>
 
       <div hidden id="loggedin">
-        <img id="user-pic"></div>
+        <div id="user-pic"></div>
           <ons-card id="profileinfo">
             <h2 id="user-name" class="card__title" style="color:#DE5571;"></h2>
           </ons-card>
@@ -399,7 +399,7 @@
         // Set 
         document.getElementById("user-name").textContent = userName
 
-        document.getElementById("user-pic").src = 'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')'
+        document.getElementById("user-pic").style.backgroundImage = 'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')'
 
       } else { // User is signed out!
         // Hide user's profile and sign-out button.
