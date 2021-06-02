@@ -406,7 +406,7 @@
         document.getElementById("user-pic").style.backgroundImage = 'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')'
         console.log(document.getElementById("user-pic"))
 
-      } else if (document.getElementById("navigator").topPage.matches("profile")) { // User is signed out!
+      } else if (!user && document.getElementById("navigator").topPage.matches("profile")) { // User is signed out!
         // Hide user's profile and sign-out button.
         document.getElementById("loggedin").setAttribute('hidden', 'true');
 
