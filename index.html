@@ -384,7 +384,7 @@
     }
 
     function authStateObserver(user) {
-      if (user && !document.getElementById("profile").hidden) { // User is signed in!
+      if (user && document.getElementById("navigator").topPage.matches("profile")) { // User is signed in!
         // Get the signed-in user's profile pic and name.
         var profilePicUrl = getProfilePicUrl();
         console.log(profilePicUrl)
@@ -406,7 +406,7 @@
         document.getElementById("user-pic").style.backgroundImage = 'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')'
         console.log(document.getElementById("user-pic"))
 
-      } else if (!document.getElementById("profile").hidden) { // User is signed out!
+      } else if (document.getElementById("navigator").topPage.matches("profile")) { // User is signed out!
         // Hide user's profile and sign-out button.
         document.getElementById("loggedin").setAttribute('hidden', 'true');
 
