@@ -315,6 +315,8 @@
             page.querySelector('ons-card .description').innerHTML = storedBar.beskrivning;
             page.querySelector('ons-card .adress').innerHTML = storedBar.adress;
             page.querySelector('ons-card .hours').innerHTML = storedBar.öppettider;
+
+            page.getElementByClassName("save-message").onclick()
             };})
     })})})}
 
@@ -386,6 +388,7 @@
     function authStateObserver() {
       user = isUserSignedIn()
       console.log(user)
+      console.log(document.getElementById("navigator").toPage)
       if (document.getElementById("navigator").topPage.matches("profile")) {
         if(user) {
           var profilePicUrl = getProfilePicUrl();
@@ -460,7 +463,7 @@
             };})
       }
 
-      initFirebaseAuth()
+      //initFirebaseAuth()
 
     var messageListElement = document.getElementById('messages');
     var messageFormElement = document.getElementById('message-form');
