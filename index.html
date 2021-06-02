@@ -384,7 +384,7 @@
     }
 
     function authStateObserver() {
-      user = isUserSignedIn
+      user = isUserSignedIn()
       console.log(user)
       if (document.getElementById("navigator").topPage.matches("profile")) {
         if(user) {
