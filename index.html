@@ -375,8 +375,8 @@
     function authStateObserver(user) {
       if (user) { // User is signed in!
         // Get the signed-in user's profile pic and name.
-        //var profilePicUrl = getProfilePicUrl();
-        //var userName = getUserName();
+        var profilePicUrl = getProfilePicUrl();
+        var userName = getUserName();
 
         // Set the user's profile pic and name.
         //userPicElement.style.backgroundImage = 'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')';
@@ -389,7 +389,7 @@
         document.getElementById("sign-in").setAttribute('hidden', 'true');
 
         // Set 
-        document.getElementById("user-name").textContent = getUserName()
+        document.getElementById("user-name").textContent = userName
 
         document.getElementById("user-pic").style.backgroundImage = 'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')'
 
