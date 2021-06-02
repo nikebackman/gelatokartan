@@ -383,7 +383,8 @@
       return !!firebase.auth().currentUser;
     }
 
-    function authStateObserver(user) {
+    function authStateObserver() {
+      user = isUserSignedIn
       if (document.getElementById("navigator").topPage.matches("profile")) {
         if(user) {
           var profilePicUrl = getProfilePicUrl();
