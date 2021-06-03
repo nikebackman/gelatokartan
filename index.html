@@ -99,7 +99,9 @@
 
     <script>
       const openPage = (page) => {
-        document.getElementById('navigator').pushPage(page.id);
+        document.getElementById('navigator').pushPage(page.id).then(function() {
+    ons.notification.alert('Page pushed!');
+  })
         console.log(document.getElementById('navigator').getPages)
       }
       </script>
