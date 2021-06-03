@@ -99,8 +99,8 @@
 
     <script>
       var openPage = (page) => {
-        document.getElementById('navigator').pushPage(page).then(function() {
-          console.log(document.getElementById('navigator').getCurrentPage)
+        document.getElementById('navigator').pushPage(page.id).then(function() {
+          console.log(document.getElementById('navigator').topPage.id)
   })
       }
       </script>
