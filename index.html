@@ -390,8 +390,8 @@
     function authStateObserver() {
       user = isUserSignedIn()
       console.log(user)
-      currentPage = document.getElementById("navigator").getPages
-      console.log(currentPage)
+      currentPage = document.getElementById('navigator').topPage.id
+      //console.log(currentPage)
       if (currentPage.matches("profile")) {
         if(user) {
           var profilePicUrl = getProfilePicUrl();
