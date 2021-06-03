@@ -390,7 +390,7 @@
       console.log(user)
       currentPage = document.getElementById("navigator").getCurrentPage
       console.log(currentPage)
-      if (currentPage.id.matches("profile")) {
+      if (currentPage.matches("profile")) {
         if(user) {
           var profilePicUrl = getProfilePicUrl();
           var userName = getUserName();
