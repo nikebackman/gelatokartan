@@ -98,9 +98,11 @@
     <ons-navigator id="navigator" page="home.html"></ons-navigator>
 
     <script>
-      const openPage = (page) => {
+      var openPage = (page) => {
         document.getElementById('navigator').pushPage(page.id).then(function() {
-          console.log(document.getElementById('navigator'))});
+          console.log(document.getElementById('navigator').topPage.id)
+          initFirebaseAuth()
+  })
       }
       </script>
 
@@ -110,7 +112,7 @@
         <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
           <div id="gelatokartan-heading" class="center" style="color: white">GELATOKARTAN</div>
           <div class="right">
-            <ons-toolbar-button onclick="openPage(profile)">
+            <ons-toolbar-button onclick=openPage(profile)>
               <ons-icon icon="md-account" style="color: white;"></ons-icon>
             </ons-toolbar-button>
           </div>
@@ -118,7 +120,7 @@
 
           <div id="map" style="border-radius: 10px"></div>
 
-          <div class="control-panel">
+          <div class="control-panel" style="background-color: #FFF8BA;">
             <div class="controls zoom-control">
               <button class="zoom-control-in" title="Zoom In">+</ons-button>
               <button class="zoom-control-out" title="Zoom Out"
@@ -148,19 +150,19 @@
             <text x="50%" y="50%" class="topp" dominant-baseline="middle" text-anchor="middle">TOPPVAL</text>
           </svg>
 
-          <div>
+          <div style="background-color: #FFF8BA;">
             <ons-card class="mjuk">
               <h2 class="card__title" style="color:#DE5571; font: Helvetica; font-weight:bolder">Mjuk Mjuk</h2>
               <div class="card__content">Text</div>
             </ons-card>
           </div>
-          <div>
+          <div style="background-color: #FFF8BA;">
             <ons-card class="sno">
                 <h2 class="card__title" style="color:#DE5571; font: Helvetica; font-weight:bolder">SNÖ</h2>
                 <div class="card__content">Text</div>
               </ons-card>
             </div>
-            <div>
+            <div style="background-color: #FFF8BA;">
               <ons-card class="scarfo">
                   <h2 class="card__title" style="color:#DE5571; font: Helvetica; font-weight:bolder">Scarfo</h2>
                   <div class="card__content">Text</div>
@@ -168,7 +170,7 @@
               </div>
         </div>
         <footer>
-          <svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340 200"><defs><style>.cls-1{fill:none;}.cls-2{fill:#f6c2a4;}.cls-3{fill:url(#Nytt_mönster);}</style><pattern id="Nytt_mönster" data-name="Nytt mönster" width="340" height="200" patternUnits="userSpaceOnUse" viewBox="0 0 340 200"><rect class="cls-1" width="340" height="200"/><rect class="cls-2" width="340" height="146.68"/><path class="cls-2" d="M.35,146.68c10.11-1.28,21.33,38.28,36,38.26,16,0,19.34-37.86,33.67-38.26s20.23,34.44,35.24,34.37,20.42-34.44,35.24-34.37c14,.07,18.54,30.66,33.68,32,13.79,1.25,19.18-32.6,31.32-32,11.82.55,19.88,32.71,33.86,31.54,15.43-1.29,12-30.21,28.61-31.46,16.13-1.22,23.9,29.6,41.49,29.7,12.18.07,20.08-29.49,30.17-29.7"/></pattern></defs><rect class="cls-3" width="340" height="200"/></svg>
+          <svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340 200"><defs><style>.cls-1{fill:#FFF8BA;}.cls-2{fill:#f6c2a4;}.cls-3{fill:url(#Nytt_mönster);}</style><pattern id="Nytt_mönster" data-name="Nytt mönster" width="340" height="200" patternUnits="userSpaceOnUse" viewBox="0 0 340 200"><rect class="cls-1" width="340" height="200"/><rect class="cls-2" width="340" height="146.68"/><path class="cls-2" d="M.35,146.68c10.11-1.28,21.33,38.28,36,38.26,16,0,19.34-37.86,33.67-38.26s20.23,34.44,35.24,34.37,20.42-34.44,35.24-34.37c14,.07,18.54,30.66,33.68,32,13.79,1.25,19.18-32.6,31.32-32,11.82.55,19.88,32.71,33.86,31.54,15.43-1.29,12-30.21,28.61-31.46,16.13-1.22,23.9,29.6,41.49,29.7,12.18.07,20.08-29.49,30.17-29.7"/></pattern></defs><rect class="cls-3" width="340" height="200"/></svg>
         </footer>
        </ons-page>
    </template>
@@ -189,10 +191,14 @@
       </div>
 
       <div hidden id="loggedin">
-        <div id="user-pic"></div>
+        <div style="display:flex; justify-content: center;">
+          <div id="user-pic" style="height:100px; width: 100px; border-radius: 50%; margin-top: 20px;"></div>
+        </div>
+        <div>
           <ons-card id="profileinfo">
             <h2 id="user-name" class="card__title" style="color:#DE5571;"></h2>
           </ons-card>
+        </div>
         <div style="text-align: center;">
           <ons-button id="sign-out" style="margin-top: 20px;" onclick="signOut()">
             Sign-out
@@ -300,7 +306,7 @@
         });
         marker.addListener('click', function() {
           infoWindow.open(map, marker);
-          //marker.addListener("click", function() {
+          marker.addListener("click", function() {
           currentBar = bar;
           storedBar = currentBar;
           console.log(storedBar)
@@ -320,7 +326,7 @@
             }
             loadMessages(storedBar.address)
             };})
-    })})}//)}
+    })})})}
 
     getData();
 
@@ -341,7 +347,7 @@
       // Sign into Firebase using popup auth & Google as the identity provider.
       var provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider);
-      initFirebaseAuth()
+      //initFirebaseAuth()
     }
 
     // Signs-out.
@@ -363,6 +369,13 @@
       );
     }
 
+    function addSizeToGoogleProfilePic(url) {
+      if (url.indexOf('googleusercontent.com') !== -1 && url.indexOf('?') === -1) {
+        return url + '?sz=150';
+      }
+      return url;
+    }
+
     // Returns the signed-in user's display name.
     function getUserName() {
       console.log(firebase.auth().currentUser.displayName);
@@ -374,33 +387,38 @@
       return !!firebase.auth().currentUser;
     }
 
-    function authStateObserver(user) {
-      if (user) { // User is signed in!
-        // Get the signed-in user's profile pic and name.
-        //var profilePicUrl = getProfilePicUrl();
-        //var userName = getUserName();
+    function authStateObserver() {
+      user = isUserSignedIn()
+      console.log(user)
+      currentPage = document.getElementById('navigator').topPage.id
+      //console.log(currentPage)
+      if (currentPage==="profile") {
+        console.log("i'm here 1")
+        if(user) {
+          console.log("i'm here 2")
+          var profilePicUrl = getProfilePicUrl();
+          var userName = getUserName();
 
-        // Set the user's profile pic and name.
-        //userPicElement.style.backgroundImage = 'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')';
-        //userNameElement.textContent = userName;
+          // Show user's profile and sign-out button.
+          document.getElementById("loggedin").removeAttribute("hidden")
 
-        // Show user's profile and sign-out button.
-        document.getElementById("loggedin").removeAttribute("hidden")
+          // Hide sign-in button.
+          document.getElementById("sign-in").setAttribute('hidden', 'true');
 
-        // Hide sign-in button.
-        document.getElementById("sign-in").setAttribute('hidden', 'true');
+          // Set the user's profile pic and name.
+          document.getElementById("user-name").textContent = userName
+          document.getElementById("user-pic").style.backgroundImage = 'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')'
+          console.log(document.getElementById("user-pic"))
 
-        // Set 
-        document.getElementById("user-name").textContent = getUserName()
-
-      } else { // User is signed out!
+        } else { // User is signed out!
         // Hide user's profile and sign-out button.
+        console.log("i'm here 3")
         document.getElementById("loggedin").setAttribute('hidden', 'true');
 
         // Show sign-in button.
         document.getElementById("sign-in").removeAttribute('hidden');
       }
-    }
+    }}
 
     // Loads chat messages history and listens for upcoming ones.
     function loadMessages(id) {
@@ -455,6 +473,8 @@
             messageContainer.appendChild(newDiv);
             };})
       }
+
+      initFirebaseAuth()
 
     var messageListElement = document.getElementById('messages');
     var messageFormElement = document.getElementById('message-form');
