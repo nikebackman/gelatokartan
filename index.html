@@ -98,7 +98,7 @@
     <ons-navigator id="navigator" page="home.html"></ons-navigator>
 
     <script>
-      const openPage = (page) => {
+      var openPage = (page) => {
         document.getElementById('navigator').pushPage(page.id).then(function() {
           console.log(document.getElementById('navigator').getCurrentPage)
   })
