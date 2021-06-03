@@ -393,7 +393,9 @@
       currentPage = document.getElementById('navigator').topPage.id
       //console.log(currentPage)
       if (currentPage==="profile") {
+        console.log("i'm here 1")
         if(user) {
+          console.log("i'm here 2")
           var profilePicUrl = getProfilePicUrl();
           var userName = getUserName();
 
@@ -410,6 +412,7 @@
 
         } else { // User is signed out!
         // Hide user's profile and sign-out button.
+        console.log("i'm here 3")
         document.getElementById("loggedin").setAttribute('hidden', 'true');
 
         // Show sign-in button.
