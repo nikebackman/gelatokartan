@@ -482,14 +482,7 @@
         const newDiv = document.createElement("div");
         const newContent = document.createTextNode(text);
         newDiv.appendChild(newContent);
-
-        document.addEventListener('init', function(event) {
-          console.log('This is a lifecycle event!', event.target);
-
-        /*  document.addEventListener('show', function(event) {
-            "17b72dd779d4f87776a544d01f627a38b2e527e2"
-          }*/
-
+        document.addEventListener('show', function(event) {
           var page = event.target;
           if (page.matches('#infoview')) {
             var messageContainer = document.querySelector('ons-card .comments');
