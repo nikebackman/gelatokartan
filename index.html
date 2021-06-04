@@ -231,12 +231,12 @@
       <ons-card>
         <div class="hours" style="color:#DE5571; font: Helvetica;">Öppettider</div>
       </ons-card>
+      <ons-card>
+        <div class="save-message" style="color:#DE5571; font: Helvetica;">Öppettider</div>
+      </ons-card>
       <p style="font-size: x-large; font-weight: bolder; color:#DE5571;">
         OMDÖMEN
       </p>
-      <ons-card>
-        <div class="comments">Inga kommentarer än</div>
-      </ons-card>
       <div style="text-align: center; margin-top: 30px;">
         <p>
       <ons-input id="review-input" placeholder="Lämna ett omdöme!" float></ons-input>
@@ -249,6 +249,10 @@
         Logga in med Google för att kommentera
       </ons-button>
     </div>
+    <ons-button id="save-message" class="save-message">Kommentera</ons-button>
+    <ons-card>
+      <div class="comments"></div>
+    </ons-card>
     </div>
     </div>
 
@@ -293,6 +297,7 @@
           gelatobarer.push(bar);
         }),
       );
+      console.log(gelatobarer)
       gelatobarer.forEach(bar => {
         var pos = {
 							lat: parseFloat(bar.latitud),
@@ -323,17 +328,20 @@
             page.querySelector('ons-card .description').innerHTML = storedBar.beskrivning;
             page.querySelector('ons-card .adress').innerHTML = storedBar.adress;
             page.querySelector('ons-card .hours').innerHTML = storedBar.öppettider;
-
-            page.getElementByClassName("save-message").onclick()
+            page.querySelector('ons-button').onclick = function() {
+              console.log(storedBar.id)
+              saveMessage(storedBar.address);
+            }
+            loadMessages(storedBar.address)
             };})
     })})})}
 
     getData();
 
-    function saveMessage() {
+    function saveMessage(id) {
       // Add a new message entry to the database.
       var messageText = document.getElementById('review-input').value;
-      return firebase.firestore().collection('reviews').add({
+      return firebase.firestore().collection('gelatobarer/'+id+'/reviews').add({
         name: "testnamn",
         text: messageText,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
@@ -376,12 +384,6 @@
       return url;
     }
 
-  // Displays a Message in the UI.
-  function displayMessage(id, timestamp, name, text) {
-    const newDiv = document.createElement("div");
-    const newContent = document.createTextNode(text);
-    newDiv.appendChild(newContent);}
-
     // Returns the signed-in user's display name.
     function getUserName() {
       console.log(firebase.auth().currentUser.displayName);
@@ -411,7 +413,7 @@
           // Set the user's profile pic and name.
           document.getElementById("user-name").textContent = userName
           document.getElementById("user-pic").style.backgroundImage = 'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')'
-          
+
 
         } else { // User is signed out!
         // Hide user's profile and sign-out button.
@@ -431,13 +433,21 @@
     }}
 
     // Loads chat messages history and listens for upcoming ones.
-    function loadMessages() {
+    function loadMessages(id) {
+      document.addEventListener('show', function(event) {
+          var page = event.target;
+          if (page.matches('#infoview')) {
+            var messageContainer = page.querySelector('ons-card .comments');
+            console.log(messageContainer)
+            messageContainer.innerHTML = '';
+            console.log(messageContainer)
+            };})
         // Create the query to load the last 12 messages and listen for new ones.
+        console.log('gelatobarer/'+id+'/reviews')
           var query = firebase.firestore()
-                      .collection('reviews')
+                      .collection('gelatobarer/'+id+'/reviews')
                       .orderBy('timestamp', 'desc')
 
-          console.log(query)
 
         // Start listening to the query.
           query.onSnapshot(function(snapshot) {
@@ -446,14 +456,13 @@
               deleteMessage(change.doc.id);
             } else {
               var message = change.doc.data();
+              console.log('im here')
               displayMessage(change.doc.id, message.timestamp, message.namn,
                           message.text);
             }
           });
         });
         }
-
-        loadMessages()
 
         // Delete a Message from the UI.
         function deleteMessage(id) {
@@ -472,6 +481,9 @@
 
         document.addEventListener('init', function(event) {
           console.log('This is a lifecycle event!', event.target);
+
+          document.addEventListener('show', function(event) {
+  >>>>>>> 17b72dd779d4f87776a544d01f627a38b2e527e2
 
           var page = event.target;
           if (page.matches('#infoview')) {
