@@ -241,11 +241,11 @@
         OMDÖMEN
       </p>
 
-      <div style="text-align: center; margin-top: 30px;">
+      <div hidden id="comment" style="text-align: center; margin-top: 30px;">
         <p>
           <ons-input id="review-input" placeholder="Lämna ett omdöme!" float></ons-input>
         </p>
-        <ons-button hidden id="save-message" class="save-message">Kommentera</ons-button>
+        <ons-button id="save-message" class="save-message">Kommentera</ons-button>
       </div>
 
       <div id="sign-in" style="text-align: center;">
@@ -429,9 +429,9 @@
     } else if (currentPage==="infoview") {
       if (user) {
         document.getElementById("sign-in").setAttribute("hidden", "true")
-        document.getElementById("save-message").removeAttribute("hidden")
+        document.getElementById("comment").removeAttribute("hidden")
       } else {
-        document.getElementById("save-message").setAttribute("hidden", "true")
+        document.getElementById("comment").setAttribute("hidden", "true")
         document.getElementById("sign-in").removeAttribute("hidden")
       }
     }}
