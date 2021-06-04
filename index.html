@@ -184,7 +184,7 @@
         </div>
       </ons-toolbar>
 
-      <div id="sign-in"style="text-align: center;">
+      <div id="sign-in" style="text-align: center;">
         <ons-button id="sign-in" style="margin-top: 20px;" onclick="signIn()">
           Sign-in with Google
         </ons-button>
@@ -215,12 +215,14 @@
 
    <template id="infoview">
      <ons-page id="infoview">
+
       <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
         <div id="gelato-bar-name" class="center" style="color: white">Namn</div>
         <div class="left">
           <ons-back-button></ons-back-button>
         </div>
       </ons-toolbar>
+
       <div style="padding: 20px;">
       <ons-card>
         <div class="description" style="color:#DE5571; font: Helvetica;">Beskrivning</div>
@@ -234,26 +236,28 @@
       <ons-card>
         <div class="save-message" style="color:#DE5571; font: Helvetica;">Öppettider</div>
       </ons-card>
+
       <p style="font-size: x-large; font-weight: bolder; color:#DE5571;">
         OMDÖMEN
       </p>
+
       <div style="text-align: center; margin-top: 30px;">
         <p>
-      <ons-input id="review-input" placeholder="Lämna ett omdöme!" float></ons-input>
-    </p>
-    <!--<p style="margin-top: 30px;">
-      <ons-button hidden id="comment" onclick=saveMessage()>Kommentera</ons-button>
-    </p>--->
-    <div id="sign-in"style="text-align: center;">
-      <ons-button id="sign-in" style="margin-top: 20px;" onclick="signIn()">
-        Logga in med Google för att kommentera
-      </ons-button>
-    </div>
-    <ons-button id="save-message" class="save-message">Kommentera</ons-button>
-    <ons-card>
-      <div class="comments"></div>
-    </ons-card>
-    </div>
+          <ons-input id="review-input" placeholder="Lämna ett omdöme!" float></ons-input>
+        </p>
+        <ons-button hidden id="save-message" class="save-message">Kommentera</ons-button>
+      </div>
+
+      <div id="sign-in" style="text-align: center;">
+        <ons-button id="sign-in" style="margin-top: 20px;" onclick="signIn()">
+          Logga in med Google för att kommentera
+        </ons-button>
+      </div>
+
+      <ons-card>
+        <div class="comments"></div>
+      </ons-card>
+
     </div>
 
       <script>
