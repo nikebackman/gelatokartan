@@ -242,8 +242,13 @@
       <ons-input id="review-input" placeholder="Lämna ett omdöme!" float></ons-input>
     </p>
     <p style="margin-top: 30px;">
-      <ons-button onclick=saveMessage()>Kommentera</ons-button>
+      <ons-button hidden id="comment" onclick=saveMessage()>Kommentera</ons-button>
     </p>
+    <div id="sign-in"style="text-align: center;">
+      <ons-button id="sign-in" style="margin-top: 20px;" onclick="signIn()">
+        Logga in med Google för att kommentera
+      </ons-button>
+    </div>
     </div>
     </div>
 
@@ -390,13 +395,10 @@
 
     function authStateObserver() {
       user = isUserSignedIn()
-      console.log(user)
       currentPage = document.getElementById('navigator').topPage.id
       //console.log(currentPage)
       if (currentPage==="profile") {
-        console.log("i'm here 1")
         if(user) {
-          console.log("i'm here 2")
           var profilePicUrl = getProfilePicUrl();
           var userName = getUserName();
 
@@ -409,15 +411,22 @@
           // Set the user's profile pic and name.
           document.getElementById("user-name").textContent = userName
           document.getElementById("user-pic").style.backgroundImage = 'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')'
-          console.log(document.getElementById("user-pic"))
+          
 
         } else { // User is signed out!
         // Hide user's profile and sign-out button.
-        console.log("i'm here 3")
         document.getElementById("loggedin").setAttribute('hidden', 'true');
 
         // Show sign-in button.
         document.getElementById("sign-in").removeAttribute('hidden');
+      }
+    } else if (currentPage==="infoview") {
+      if (user) {
+        document.getElementById("sign-in").setAttribute("hidden", "true")
+        document.getElementById("comment").removeAttribute("hidden")
+      } else {
+        document.getElementById("comment").setAttribute("hidden", "true")
+        document.getElementById("sign-in").removeAttribute("hidden")
       }
     }}
 
@@ -460,6 +469,7 @@
         const newDiv = document.createElement("div");
         const newContent = document.createTextNode(text);
         newDiv.appendChild(newContent);
+
         document.addEventListener('init', function(event) {
           console.log('This is a lifecycle event!', event.target);
 
@@ -471,19 +481,6 @@
       }
 
       initFirebaseAuth()
-
-    var messageListElement = document.getElementById('messages');
-    var messageFormElement = document.getElementById('message-form');
-    var messageInputElement = document.getElementById('message');
-    var submitButtonElement = document.getElementById('submit');
-    var imageButtonElement = document.getElementById('submitImage');
-    var imageFormElement = document.getElementById('image-form');
-    var mediaCaptureElement = document.getElementById('mediaCapture');
-    var userPicElement = document.getElementById('user-pic');
-    var userNameElement = document.getElementById('user-name');
-    var signInButtonElement = document.getElementById('sign-in');
-    var signOutButtonElement = document.getElementById('sign-out');
-    //var signInSnackbarElement = document.getElementById('must-signin-snackbar');
 
   </script>
   </body>
