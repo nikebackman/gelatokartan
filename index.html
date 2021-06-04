@@ -241,9 +241,9 @@
         <p>
       <ons-input id="review-input" placeholder="Lämna ett omdöme!" float></ons-input>
     </p>
-    <p style="margin-top: 30px;">
+    <!--<p style="margin-top: 30px;">
       <ons-button hidden id="comment" onclick=saveMessage()>Kommentera</ons-button>
-    </p>
+    </p>--->
     <div id="sign-in"style="text-align: center;">
       <ons-button id="sign-in" style="margin-top: 20px;" onclick="signIn()">
         Logga in med Google för att kommentera
@@ -425,9 +425,9 @@
     } else if (currentPage==="infoview") {
       if (user) {
         document.getElementById("sign-in").setAttribute("hidden", "true")
-        document.getElementById("comment").removeAttribute("hidden")
+        document.getElementById("save-message").removeAttribute("hidden")
       } else {
-        document.getElementById("comment").setAttribute("hidden", "true")
+        document.getElementById("save-message").setAttribute("hidden", "true")
         document.getElementById("sign-in").removeAttribute("hidden")
       }
     }}
