@@ -107,7 +107,7 @@
       </script>
 
     <template id="home.html">
-      <ons-page id="home">
+      <ons-page id="home" class="ons-page">
 
         <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
           <div id="gelatokartan-heading" class="center" style="color: white">GELATOKARTAN</div>
@@ -146,23 +146,23 @@
             </div>
           </div>
 
-          <svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340 200"><defs><style>.cls-1{fill:none;}.cls-2{fill:#f6c2a4;}.cls-3{fill:url(#Nytt_mönster);}.topp{ font: xx-large sans-serif; fill:white;font-weight:bolder;}</style><pattern id="Nytt_mönster" data-name="Nytt mönster" width="340" height="200" patternUnits="userSpaceOnUse" viewBox="0 0 340 200"><rect class="cls-1" width="340" height="200"/><rect class="cls-2" width="340" height="146.68"/><path class="cls-2" d="M.35,146.68c10.11-1.28,21.33,38.28,36,38.26,16,0,19.34-37.86,33.67-38.26s20.23,34.44,35.24,34.37,20.42-34.44,35.24-34.37c14,.07,18.54,30.66,33.68,32,13.79,1.25,19.18-32.6,31.32-32,11.82.55,19.88,32.71,33.86,31.54,15.43-1.29,12-30.21,28.61-31.46,16.13-1.22,23.9,29.6,41.49,29.7,12.18.07,20.08-29.49,30.17-29.7"/></pattern></defs><rect class="cls-3" width="340" height="200"/>
+          <svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340 200"><defs><style>.cls-1{ fill:#FFF8BA}.cls-2{fill:#f6c2a4;}.cls-3{fill:url(#Nytt_mönster);}.topp{ font: xx-large sans-serif; fill:white;font-weight:bolder;}</style><pattern id="Nytt_mönster" data-name="Nytt mönster" width="340" height="200" patternUnits="userSpaceOnUse" viewBox="0 0 340 200"><rect class="cls-1" width="340" height="200"/><rect class="cls-2" width="340" height="146.68"/><path class="cls-2" d="M.35,146.68c10.11-1.28,21.33,38.28,36,38.26,16,0,19.34-37.86,33.67-38.26s20.23,34.44,35.24,34.37,20.42-34.44,35.24-34.37c14,.07,18.54,30.66,33.68,32,13.79,1.25,19.18-32.6,31.32-32,11.82.55,19.88,32.71,33.86,31.54,15.43-1.29,12-30.21,28.61-31.46,16.13-1.22,23.9,29.6,41.49,29.7,12.18.07,20.08-29.49,30.17-29.7"/></pattern></defs><rect class="cls-3" width="340" height="200"/>
             <text x="50%" y="50%" class="topp" dominant-baseline="middle" text-anchor="middle">TOPPVAL</text>
           </svg>
 
-          <div style="background-color: #FFF8BA;">
+          <div style="background-color: #FFF8BA; padding-top: 5px;padding-bottom:5px">
             <ons-card class="mjuk">
               <h2 class="card__title" style="color:#DE5571; font: Helvetica; font-weight:bolder">Mjuk Mjuk</h2>
               <div class="card__content">Text</div>
             </ons-card>
           </div>
-          <div style="background-color: #FFF8BA;">
+          <div style="background-color: #FFF8BA; padding-top: 5px;padding-bottom:5px">
             <ons-card class="sno">
                 <h2 class="card__title" style="color:#DE5571; font: Helvetica; font-weight:bolder">SNÖ</h2>
                 <div class="card__content">Text</div>
               </ons-card>
             </div>
-            <div style="background-color: #FFF8BA;">
+            <div style="background-color: #FFF8BA; padding-top: 5px;padding-bottom:5px">
               <ons-card class="scarfo">
                   <h2 class="card__title" style="color:#DE5571; font: Helvetica; font-weight:bolder">Scarfo</h2>
                   <div class="card__content">Text</div>
@@ -184,22 +184,22 @@
         </div>
       </ons-toolbar>
 
-      <div id="sign-in"style="text-align: center;">
+      <div id="sign-in" style="text-align: center;">
         <ons-button id="sign-in" style="margin-top: 20px;" onclick="signIn()">
           Sign-in with Google
         </ons-button>
       </div>
 
       <div hidden id="loggedin">
-        <div style="display:flex; justify-content: center;">
-          <div id="user-pic" style="height:100px; width: 100px; border-radius: 50%; margin-top: 20px;"></div>
+        <div style="display:flex; justify-content: center; background-color: #FFF8BA;">
+          <div id="user-pic" style="height:100px; width: 100px; border-radius: 50%; margin-top: 50px; margin-bottom: 50px;"></div>
         </div>
-        <div>
+        <div style="background-color: #FFF8BA; padding-top:5px;padding-bottom:5px;">
           <ons-card id="profileinfo">
             <h2 id="user-name" class="card__title" style="color:#DE5571;"></h2>
           </ons-card>
         </div>
-        <div style="text-align: center;">
+        <div style="text-align: center; background-color: #FFF8BA; padding-bottom: 200px; padding-top: 5px">
           <ons-button id="sign-out" style="margin-top: 20px;" onclick="signOut()">
             Sign-out
           </ons-button>
@@ -215,12 +215,14 @@
 
    <template id="infoview">
      <ons-page id="infoview">
+
       <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
         <div id="gelato-bar-name" class="center" style="color: white">Namn</div>
         <div class="left">
           <ons-back-button></ons-back-button>
         </div>
       </ons-toolbar>
+
       <div style="padding: 20px;">
       <ons-card>
         <div class="description" style="color:#DE5571; font: Helvetica;">Beskrivning</div>
@@ -234,18 +236,28 @@
       <ons-card>
         <div class="save-message" style="color:#DE5571; font: Helvetica;">Öppettider</div>
       </ons-card>
+
       <p style="font-size: x-large; font-weight: bolder; color:#DE5571;">
         OMDÖMEN
       </p>
-      <div style="text-align: center; margin-top: 30px;">
+
+      <div hidden id="comment" style="text-align: center; margin-top: 30px;">
         <p>
-      <ons-input id="review-input" placeholder="Lämna ett omdöme!" float></ons-input>
-    </p>
-    <ons-button id="save-message" class="save-message">Kommentera</ons-button>
-    <ons-card>
-      <div class="comments"></div>
-    </ons-card>
-    </div>
+          <ons-input id="review-input" placeholder="Lämna ett omdöme!" float></ons-input>
+        </p>
+        <ons-button id="save-message" class="save-message">Kommentera</ons-button>
+      </div>
+
+      <div id="sign-in" style="text-align: center;">
+        <ons-button id="sign-in" style="margin-top: 20px;" onclick="signIn()">
+          Logga in med Google för att kommentera
+        </ons-button>
+      </div>
+
+      <ons-card>
+        <div class="comments"></div>
+      </ons-card>
+
     </div>
 
       <script>
@@ -292,12 +304,18 @@
         var pos = {
 							lat: parseFloat(bar.latitud),
 							lng: parseFloat(bar.longitud)
-							};
+              };
+        
+        var icon = {
+        url: "./img/glass_pin.png", // url
+        scaledSize: new google.maps.Size(44, 80), // size
+    };
         var marker = new google.maps.Marker({
           map,
           draggable: false,
           position: pos,
-          title: bar.namn
+          title: bar.namn,
+          icon: icon,
         });
         var infoWindow = new google.maps.InfoWindow({
           content: `${bar.namn} Klicka för info`
@@ -449,13 +467,10 @@
 
     function authStateObserver() {
       user = isUserSignedIn()
-      console.log(user)
       currentPage = document.getElementById('navigator').topPage.id
       //console.log(currentPage)
       if (currentPage==="profile") {
-        console.log("i'm here 1")
         if(user) {
-          console.log("i'm here 2")
           var profilePicUrl = getProfilePicUrl();
           var userName = getUserName();
 
@@ -468,32 +483,26 @@
           // Set the user's profile pic and name.
           document.getElementById("user-name").textContent = userName
           document.getElementById("user-pic").style.backgroundImage = 'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')'
-          console.log(document.getElementById("user-pic"))
+
 
         } else { // User is signed out!
         // Hide user's profile and sign-out button.
-        console.log("i'm here 3")
         document.getElementById("loggedin").setAttribute('hidden', 'true');
 
         // Show sign-in button.
         document.getElementById("sign-in").removeAttribute('hidden');
       }
+    } else if (currentPage==="infoview") {
+      if (user) {
+        document.getElementById("sign-in").setAttribute("hidden", "true")
+        document.getElementById("comment").removeAttribute("hidden")
+      } else {
+        document.getElementById("comment").setAttribute("hidden", "true")
+        document.getElementById("sign-in").removeAttribute("hidden")
+      }
     }}
 
     initFirebaseAuth()
-
-    var messageListElement = document.getElementById('messages');
-    var messageFormElement = document.getElementById('message-form');
-    var messageInputElement = document.getElementById('message');
-    var submitButtonElement = document.getElementById('submit');
-    var imageButtonElement = document.getElementById('submitImage');
-    var imageFormElement = document.getElementById('image-form');
-    var mediaCaptureElement = document.getElementById('mediaCapture');
-    var userPicElement = document.getElementById('user-pic');
-    var userNameElement = document.getElementById('user-name');
-    var signInButtonElement = document.getElementById('sign-in');
-    var signOutButtonElement = document.getElementById('sign-out');
-    //var signInSnackbarElement = document.getElementById('must-signin-snackbar');
 
   </script>
   </body>
