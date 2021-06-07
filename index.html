@@ -249,9 +249,9 @@
     </div>
 
       <script>
-        ons.getScriptPage().onInit = function() {
-          console.log('This is a lifecycle hook!', this);
-        };
+        //ons.getScriptPage().onInit = function() {
+          //console.log('This is a lifecycle hook!', this);
+        //};
       </script>
 
       <footer>
@@ -267,7 +267,7 @@
   <!-- <script src="/https://www.gstatic.com/firebase/init.js"></script> -->
 
    <script>
-
+    
     firebase.initializeApp({
       apiKey: "AIzaSyD6Z4UjiaNIW0HU9y_oJRgw1aMmFE_82kY",
       authDomain: "gelatokartan.firebaseapp.com",
@@ -275,7 +275,6 @@
     });
 
     let db = firebase.firestore();
-
 
     async function getData() {
 
@@ -289,7 +288,6 @@
           gelatobarer.push(bar);
         }),
       );
-      console.log(gelatobarer)
       gelatobarer.forEach(bar => {
         var pos = {
 							lat: parseFloat(bar.latitud),
@@ -304,18 +302,25 @@
         var infoWindow = new google.maps.InfoWindow({
           content: `${bar.namn} Klicka för info`
         });
+        var smallPopup = false;
+        //marker.removeAllListeners('click');
         marker.addListener('click', function() {
-          infoWindow.open(map, marker);
-          marker.addListener("click", function() {
-          currentBar = bar;
-          storedBar = currentBar;
-          console.log(storedBar)
-          openPage(infoview);
-          document.addEventListener('init', function(event) {
-          console.log('This is a lifecycle event!', event.target);
-
+          if (!smallPopup){
+            infoWindow.open(map, marker);
+            smallPopup = true;
+          }
+          else {
+            console.log('click')
+            storedBar = bar;
+            console.log(storedBar)
+            openPage(infoview);
+            loadMessages(storedBar.address)
+            document.addEventListener('init', function(event) {
+            console.log('This is a lifecycle event!', event.target);
+          
           var page = event.target;
           if (page.matches('#infoview')) {
+            page.querySelector('ons-card .comments').innerHTML = '';
             page.querySelector('ons-toolbar .center').innerHTML = storedBar.namn;
             page.querySelector('ons-card .description').innerHTML = storedBar.beskrivning;
             page.querySelector('ons-card .adress').innerHTML = storedBar.adress;
@@ -324,12 +329,13 @@
               console.log(storedBar.id)
               saveMessage(storedBar.address);
             }
-            loadMessages(storedBar.address)
             };})
-    })})})}
+          }
+      })})
+    }
 
     getData();
-
+    
     function saveMessage(id) {
       // Add a new message entry to the database.
       var messageText = document.getElementById('review-input').value;
@@ -340,7 +346,61 @@
       }).catch(function(error) {
         console.error('Error writing new message to database', error);
       });
+      window.location.reload();
     }
+
+    // Loads chat messages history and listens for upcoming ones.
+    function loadMessages(id) {
+      document.addEventListener('show', function(event) {
+          var page = event.target;
+          if (page.matches('#infoview')) {
+            var messageContainer = page.querySelector('ons-card .comments');
+            messageContainer.innerHTML = '';
+            console.log(messageContainer)
+            };})
+        // Create the query to load the last 12 messages and listen for new ones.
+        console.log('gelatobarer/'+id+'/reviews')
+          var query = firebase.firestore()
+                      .collection('gelatobarer/'+id+'/reviews')
+                      .orderBy('timestamp', 'desc')
+        
+
+        // Start listening to the query.
+          query.onSnapshot(function(snapshot) {
+            snapshot.docChanges().forEach(function(change) {
+            if (change.type === 'removed') {
+              deleteMessage(change.doc.id);
+            } else {
+              var message = change.doc.data();
+              console.log('im here')
+              displayMessage(change.doc.id, message.timestamp, message.namn,
+                          message.text);
+            }
+          });
+        });
+      }
+
+     // Delete a Message from the UI.
+     function deleteMessage(id) {
+      var div = document.getElementById(id);
+      // If an element for that message exists we delete it.
+      if (div) {
+        div.parentNode.removeChild(div);
+      }
+    }
+
+    // Displays a Message in the UI.
+    function displayMessage(id, timestamp, name, text) {
+        const newDiv = document.createElement("div");
+        const newContent = document.createTextNode(text);
+        newDiv.appendChild(newContent);
+        document.addEventListener('show', function(event) {
+          var page = event.target;
+          if (page.matches('#infoview')) {
+            var messageContainer = document.querySelector('ons-card .comments');
+            messageContainer.appendChild(newDiv);
+            };})
+      }
 
         // Signs-in.
     function signIn() {
@@ -420,61 +480,7 @@
       }
     }}
 
-    // Loads chat messages history and listens for upcoming ones.
-    function loadMessages(id) {
-      document.addEventListener('show', function(event) {
-          var page = event.target;
-          if (page.matches('#infoview')) {
-            var messageContainer = page.querySelector('ons-card .comments');
-            console.log(messageContainer)
-            messageContainer.innerHTML = '';
-            console.log(messageContainer)
-            };})
-        // Create the query to load the last 12 messages and listen for new ones.
-        console.log('gelatobarer/'+id+'/reviews')
-          var query = firebase.firestore()
-                      .collection('gelatobarer/'+id+'/reviews')
-                      .orderBy('timestamp', 'desc')
-        
-
-        // Start listening to the query.
-          query.onSnapshot(function(snapshot) {
-            snapshot.docChanges().forEach(function(change) {
-            if (change.type === 'removed') {
-              deleteMessage(change.doc.id);
-            } else {
-              var message = change.doc.data();
-              console.log('im here')
-              displayMessage(change.doc.id, message.timestamp, message.namn,
-                          message.text);
-            }
-          });
-        });
-        }
-
-        // Delete a Message from the UI.
-        function deleteMessage(id) {
-          var div = document.getElementById(id);
-          // If an element for that message exists we delete it.
-          if (div) {
-            div.parentNode.removeChild(div);
-          }
-        }
-
-      // Displays a Message in the UI.
-      function displayMessage(id, timestamp, name, text) {
-        const newDiv = document.createElement("div");
-        const newContent = document.createTextNode(text);
-        newDiv.appendChild(newContent);
-        document.addEventListener('show', function(event) {
-          var page = event.target;
-          if (page.matches('#infoview')) {
-            var messageContainer = document.querySelector('ons-card .comments');
-            messageContainer.appendChild(newDiv);
-            };})
-      }
-
-      initFirebaseAuth()
+    initFirebaseAuth()
 
     var messageListElement = document.getElementById('messages');
     var messageFormElement = document.getElementById('message-form');
