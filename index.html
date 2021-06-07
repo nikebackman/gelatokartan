@@ -360,7 +360,12 @@
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {
           console.log('me is here')
-          console.log(window.location.href)
+          //console.log(window.location.href)
+          document.getElementById('navigator').pushPage("infoview").then(function() {
+          console.log(document.getElementById('navigator').topPage.id)
+          initFirebaseAuth()
+  })
+          
           window.location.reload();
         }).catch(function(error) {
           console.error('Error writing new message to database', error);
