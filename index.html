@@ -356,16 +356,19 @@
     
     function saveMessage(id) {
       // Add a new message entry to the database.
-      console.log(getUserName())
-      var messageText = document.getElementById('review-input').value;
-      return firebase.firestore().collection('gelatobarer/'+id+'/reviews').add({
-        name: getUserName(),
-        text: messageText,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      }).catch(function(error) {
-        console.error('Error writing new message to database', error);
-      });
-      window.location.reload();
+      user = isUserSignedIn()
+      if (user) {
+        var messageText = document.getElementById('review-input').value;
+        return firebase.firestore().collection('gelatobarer/'+id+'/reviews').add({
+          name: getUserName(),
+          text: messageText,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        }).catch(function(error) {
+          console.error('Error writing new message to database', error);
+        });
+        window.location.reload();
+      }
+    
     }
 
     // Loads chat messages history and listens for upcoming ones.
