@@ -365,7 +365,8 @@
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).catch(function(error) {
           console.error('Error writing new message to database', error);
-        });
+        })
+        .then()
         console.log(window.location.href)
         window.location.reload();
       }
@@ -379,7 +380,6 @@
           if (page.matches('#infoview')) {
             var messageContainer = page.querySelector('ons-card .comments');
             messageContainer.innerHTML = '';
-            console.log(messageContainer)
             };})
         // Create the query to load the last 12 messages and listen for new ones.
         console.log('gelatobarer/'+id+'/reviews')
@@ -391,13 +391,10 @@
         // Start listening to the query.
           query.onSnapshot(function(snapshot) {
             snapshot.docChanges().forEach(function(change) {
-              console.log(change)
             if (change.type === 'removed') {
               deleteMessage(change.doc.id);
             } else {
               var message = change.doc.data();
-              console.log(message.text)
-              console.log('im here')
               displayMessage(change.doc.id, message.timestamp, message.name,
                           message.text);
             }
