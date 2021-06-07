@@ -72,7 +72,7 @@
         font: 0.85em Arial;
         margin: 0px;
         padding: 0;
-        background-color: #568259;
+        background-color: #B1C69C;
       }
 
       .controls.pan-control {
@@ -180,13 +180,13 @@
       <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
         <div class="center" style="color: white">PROFIL</div>
         <div class="left">
-          <ons-back-button></ons-back-button>
+          <ons-back-button><ons-icon icon="md-arrow" style="color:white"></ons-icon></ons-back-button>
         </div>
       </ons-toolbar>
 
-      <div id="sign-in" style="text-align: center;">
-        <ons-button id="sign-in" style="margin-top: 20px;" onclick="signIn()">
-          Sign-in with Google
+      <div id="sign-in" style="text-align: center; padding-bottom: 200px; padding-top: 150px; background-color: #FFF8BA;">
+        <ons-button id="sign-in" style="margin-top: 20px; background-color: #DE5571;" onclick="signIn()">
+          Logga in med Google
         </ons-button>
       </div>
 
@@ -199,15 +199,15 @@
             <h2 id="user-name" class="card__title" style="color:#DE5571;"></h2>
           </ons-card>
         </div>
-        <div style="text-align: center; background-color: #FFF8BA; padding-bottom: 200px; padding-top: 5px">
-          <ons-button id="sign-out" style="margin-top: 20px;" onclick="signOut()">
-            Sign-out
+        <div style="text-align: center; background-color: #FFF8BA; padding-bottom: 300px; padding-top: 5px">
+          <ons-button id="sign-out" style="margin-top: 20px; background-color: #DE5571;" onclick="signOut()">
+            Logga ut
           </ons-button>
         </div>
       </div>
 
       <footer>
-        <svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340 200"><defs><style>.cls-1{fill:none;}.cls-2{fill:#f6c2a4;}.cls-3{fill:url(#Nytt_mönster);}</style><pattern id="Nytt_mönster" data-name="Nytt mönster" width="340" height="200" patternUnits="userSpaceOnUse" viewBox="0 0 340 200"><rect class="cls-1" width="340" height="200"/><rect class="cls-2" width="340" height="146.68"/><path class="cls-2" d="M.35,146.68c10.11-1.28,21.33,38.28,36,38.26,16,0,19.34-37.86,33.67-38.26s20.23,34.44,35.24,34.37,20.42-34.44,35.24-34.37c14,.07,18.54,30.66,33.68,32,13.79,1.25,19.18-32.6,31.32-32,11.82.55,19.88,32.71,33.86,31.54,15.43-1.29,12-30.21,28.61-31.46,16.13-1.22,23.9,29.6,41.49,29.7,12.18.07,20.08-29.49,30.17-29.7"/></pattern></defs><rect class="cls-3" width="340" height="200"/></svg>
+        <svg id="Lager_1" data-name="Lager 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 340 200"><defs><style>.cls-1{fill:#FFF8BA}.cls-2{fill:#f6c2a4;}.cls-3{fill:url(#Nytt_mönster);}</style><pattern id="Nytt_mönster" data-name="Nytt mönster" width="340" height="200" patternUnits="userSpaceOnUse" viewBox="0 0 340 200"><rect class="cls-1" width="340" height="200"/><rect class="cls-2" width="340" height="146.68"/><path class="cls-2" d="M.35,146.68c10.11-1.28,21.33,38.28,36,38.26,16,0,19.34-37.86,33.67-38.26s20.23,34.44,35.24,34.37,20.42-34.44,35.24-34.37c14,.07,18.54,30.66,33.68,32,13.79,1.25,19.18-32.6,31.32-32,11.82.55,19.88,32.71,33.86,31.54,15.43-1.29,12-30.21,28.61-31.46,16.13-1.22,23.9,29.6,41.49,29.7,12.18.07,20.08-29.49,30.17-29.7"/></pattern></defs><rect class="cls-3" width="340" height="200"/></svg>
       </footer>
 
      </ons-page>
@@ -223,7 +223,7 @@
         </div>
       </ons-toolbar>
 
-      <div style="padding: 20px;">
+      <div style="padding: 20px; background-color: #FFF8BA;">
       <ons-card>
         <div class="description" style="color:#DE5571; font: Helvetica;">Beskrivning</div>
       </ons-card>
@@ -232,9 +232,6 @@
       </ons-card>
       <ons-card>
         <div class="hours" style="color:#DE5571; font: Helvetica;">Öppettider</div>
-      </ons-card>
-      <ons-card>
-        <div class="save-message" style="color:#DE5571; font: Helvetica;">Öppettider</div>
       </ons-card>
 
       <p style="font-size: x-large; font-weight: bolder; color:#DE5571;">
@@ -245,11 +242,11 @@
         <p>
           <ons-input id="review-input" placeholder="Lämna ett omdöme!" float></ons-input>
         </p>
-        <ons-button id="save-message" class="save-message">Kommentera</ons-button>
+        <ons-button id="save-message" class="save-message" style="background-color: #DE5571;">Kommentera</ons-button>
       </div>
 
       <div id="sign-in" style="text-align: center;">
-        <ons-button id="sign-in" style="margin-top: 20px;" onclick="signIn()">
+        <ons-button id="sign-in" style="margin-top: 20px; background-color: #DE5571;" onclick="signIn()">
           Logga in med Google för att kommentera
         </ons-button>
       </div>
