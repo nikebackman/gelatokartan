@@ -358,7 +358,7 @@
       // Add a new message entry to the database.
       var messageText = document.getElementById('review-input').value;
       return firebase.firestore().collection('gelatobarer/'+id+'/reviews').add({
-        name: getUserName().value,
+        name: getUserName(),
         text: messageText,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       }).catch(function(error) {
