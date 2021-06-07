@@ -44,16 +44,19 @@ function setLocation(map) {
     var pos = { lat: 59.348772227699676, lng: 18.048251515633595 };
     console.log("clicking this button");
     map.setCenter(pos);
+    map.setZoom(15);
   };
   document.querySelector(".sno").onclick = function () {
-    var pos = { lat: 59.234238, lng: 18.2231558 };
+    var pos = { lat: 59.34078476966632, lng: 18.04184730367087 };
     console.log("clicking this button");
     map.setCenter(pos);
+    map.setZoom(15);
   };
   document.querySelector(".scarfo").onclick = function () {
-    var pos = { lat: 59.234238, lng: 18.2231558 };
+    var pos = { lat: 59.324061664982736, lng: 17.95653392404551 };
     console.log("clicking this button");
     map.setCenter(pos);
+    map.setZoom(15);
   };
 }
 
