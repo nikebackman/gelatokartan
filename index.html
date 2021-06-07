@@ -326,6 +326,7 @@
             storedBar = bar;
             console.log(storedBar)
             openPage(infoview);
+            window.location.href = window.location.href+"infoview"
             loadMessages(storedBar.address)
             document.addEventListener('init', function(event) {
             console.log('This is a lifecycle event!', event.target);
@@ -357,12 +358,13 @@
           name: userName,
           text: "test",
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        }).then(() => {
+          console.log('me is here')
+          console.log(window.location.href)
+          window.location.reload();
         }).catch(function(error) {
           console.error('Error writing new message to database', error);
         })
-        .then()
-        console.log(window.location.href)
-        window.location.reload();
       }
     
     }
