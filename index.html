@@ -326,6 +326,7 @@
             storedBar = bar;
             console.log(storedBar)
             openPage(infoview);
+            window.location.href = window.location.href+"infoview.html"
             loadMessages(storedBar.address)
             document.addEventListener('init', function(event) {
             console.log('This is a lifecycle event!', event.target);
