@@ -356,7 +356,7 @@
         var messageText = document.getElementById('review-input').value;
         return firebase.firestore().collection('gelatobarer/'+id+'/reviews').add({
           name: userName,
-          text: "test",
+          text: messageText,
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {
           console.log('me is here')
