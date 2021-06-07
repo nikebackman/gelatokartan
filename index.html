@@ -361,7 +361,7 @@
         }).then(() => {
           console.log('me is here')
           //console.log(window.location.href)
-          document.getElementById('navigator').pushPage("infoview", animation="none")
+          document.getElementById('navigator').pushPage(page="infoview", animation="none")
           //window.location.reload();
         }).catch(function(error) {
           console.error('Error writing new message to database', error);
