@@ -363,12 +363,12 @@
           name: userName,
           text: "test",
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        }).then(() => {
+        console.log(window.location.href)
+        window.location.reload();
         }).catch(function(error) {
           console.error('Error writing new message to database', error);
         })
-        .then()
-        console.log(window.location.href)
-        window.location.reload();
       }
     
     }
