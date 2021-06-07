@@ -362,7 +362,7 @@
         var messageText = document.getElementById('review-input').value;
         return firebase.firestore().collection('gelatobarer/'+id+'/reviews').add({
           name: userName,
-          text: messageText,
+          text: "test",
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).catch(function(error) {
           console.error('Error writing new message to database', error);
@@ -392,6 +392,7 @@
         // Start listening to the query.
           query.onSnapshot(function(snapshot) {
             snapshot.docChanges().forEach(function(change) {
+              console.log(change)
             if (change.type === 'removed') {
               deleteMessage(change.doc.id);
             } else {
