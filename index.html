@@ -356,11 +356,12 @@
     
     function saveMessage(id) {
       // Add a new message entry to the database.
-      user = isUserSignedIn()
+      var user = isUserSignedIn()
       if (user) {
+        var userName = getUserName()
         var messageText = document.getElementById('review-input').value;
         return firebase.firestore().collection('gelatobarer/'+id+'/reviews').add({
-          name: getUserName(),
+          name: userName,
           text: messageText,
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }).catch(function(error) {
