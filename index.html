@@ -344,7 +344,6 @@
             page.querySelector('ons-card .adress').innerHTML = storedBar.adress;
             page.querySelector('ons-card .hours').innerHTML = storedBar.öppettider;
             page.querySelector('ons-button').onclick = function() {
-              console.log(storedBar.id)
               saveMessage(storedBar.address);
             }
             };})
@@ -397,6 +396,7 @@
               deleteMessage(change.doc.id);
             } else {
               var message = change.doc.data();
+              console.log(message.text)
               console.log('im here')
               displayMessage(change.doc.id, message.timestamp, message.name,
                           message.text);
