@@ -61,7 +61,7 @@ function setLocation(map) {
 }
 
 function getGeoLocation(map) {
-  document.querySelector(".buttonHere").onclick = function () {
+  document.querySelector(".geo-control").onclick = function () {
     hereWindow = new google.maps.InfoWindow();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
