@@ -335,7 +335,8 @@
             page.querySelector('ons-card .hours').innerHTML = storedBar.öppettider;
             page.querySelector('ons-button').onclick = function() {
               saveMessage(storedBar.address);
-              page.querySelector('ons-button').innerHTML = "Kommentar sparad";
+              //page.querySelector('ons-button').innerHTML = "Kommentar sparad";
+              ons.notification.alert('Kommentar sparad');
 
             }
             };})
