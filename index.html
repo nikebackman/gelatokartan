@@ -326,8 +326,7 @@
             console.log('click')
             storedBar = bar;
             console.log(storedBar)
-            openPage(infoview);
-            window.location.href = window.location.href+"infoview.html"
+            openPage(infoview)
             loadMessages(storedBar.address)
             document.addEventListener('init', function(event) {
             console.log('This is a lifecycle event!', event.target);
@@ -341,7 +340,9 @@
             page.querySelector('ons-card .hours').innerHTML = storedBar.öppettider;
             page.querySelector('ons-button').onclick = function() {
               saveMessage(storedBar.address);
-              openPage(infoview);
+              page.querySelector('ons-button').innerHTML = "Kommentar sparad";
+              page.querySelector('review-input').innerHTML = "";
+
             }
             };})
           }
