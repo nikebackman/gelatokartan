@@ -47,10 +47,10 @@
       .controls {
         font-size: 28px;
         font-weight: 300;
-        margin-top: 15px;
+        margin-top: 11px;
         text-align: center;
         user-select: none;
-        padding: 2px;
+        padding: 5px;
       }
 
       .controls button {
@@ -72,7 +72,7 @@
       }
       .controls.zoom-control button {
         font: 0.85em Arial;
-        margin: 0px;
+        margin-top: 3px;
         padding: 0;
         background-color: #B1C69C;
       }
@@ -83,13 +83,17 @@
 
       .controls.pan-control button {
         font: 0.85em Arial;
-        margin: 0px;
+        margin-top: 3px;
         background-color: #f6c2a4;
       }
 
-      .controls .buttonHere {
+      .controls.geo-control {
+        height: auto;
+      }
+
+      .controls.geo-control button {
         font: Arial;
-        margin-top: -20px;
+        margin: 0px;
         padding: 0;
         background-color: #DE5571;
         font-size: 10px;
@@ -112,8 +116,9 @@
       <ons-page id="home" class="ons-page">
 
         <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
-          <div id="gelatokartan-heading" class="center" style="color: white">GELATOKARTAN</div>
-          <div class="right">
+          <div class="left" style="background-color: #f6c2a4;"></div>
+          <div id="gelatokartan-heading" class="center" style="color: white; background-color: #f6c2a4;">GELATOKARTAN</div>
+          <div class="right" style="background-color: #f6c2a4;">
             <ons-toolbar-button onclick=openPage(profile)>
               <ons-icon icon="md-account" style="color: white;"></ons-icon>
             </ons-toolbar-button>
@@ -140,7 +145,7 @@
                 >&rarr;</button>
             </div>
             <div class="controls geo-control">
-              <button class="buttonHere">Här</button>
+              <button class="geo-control">Här</button>
             </div>
           </div>
           <div style="background-color: #FFF8BA">
@@ -177,8 +182,9 @@
    <template id="profile">
      <ons-page id="profile">
       <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
-        <div class="center" style="color: white">PROFIL</div>
-        <div class="left">
+        <div class="right" style="background-color: #f6c2a4;"></div>
+        <div class="center" style="color: white; background-color: #f6c2a4;">PROFIL</div>
+        <div class="left" style="background-color: #f6c2a4;">
           <ons-back-button><ons-icon icon="md-arrow" style="color:white"></ons-icon></ons-back-button>
         </div>
       </ons-toolbar>
@@ -216,8 +222,9 @@
      <ons-page id="infoview">
 
       <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
-        <div id="gelato-bar-name" class="center" style="color: white">Namn</div>
-        <div class="left">
+        <div class="right" style="background-color: #f6c2a4;"></div>
+        <div id="gelato-bar-name" class="center" style="color: white; background-color: #f6c2a4;">Namn</div>
+        <div class="left" style="background-color: #f6c2a4;">
           <ons-back-button></ons-back-button>
         </div>
       </ons-toolbar>
