@@ -5,7 +5,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Gelatokartan" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="apple-touch-icon" sizes="128x128" href="./img/appicon.png" />
+    <link rel="apple-touch-icon" sizes="128x128" href="./img/glass_pin.png" />
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css" />
     <link
       rel="stylesheet"
@@ -47,10 +47,10 @@
       .controls {
         font-size: 28px;
         font-weight: 300;
-        margin-top: 15px;
+        margin-top: 11px;
         text-align: center;
         user-select: none;
-        padding: 2px;
+        padding: 5px;
       }
 
       .controls button {
@@ -72,7 +72,7 @@
       }
       .controls.zoom-control button {
         font: 0.85em Arial;
-        margin: 0px;
+        margin-top: 3px;
         padding: 0;
         background-color: #B1C69C;
       }
@@ -82,14 +82,18 @@
       }
 
       .controls.pan-control button {
-        font: 0.85em Arial;
-        margin: 0px;
+        font: 0.65em Arial;
+        margin-top: 3px;
         background-color: #f6c2a4;
       }
 
-      .controls .buttonHere {
+      .controls.geo-control {
+        height: auto;
+      }
+
+      .controls.geo-control button {
         font: Arial;
-        margin-top: -20px;
+        margin: 0px;
         padding: 0;
         background-color: #DE5571;
         font-size: 10px;
@@ -112,8 +116,9 @@
       <ons-page id="home" class="ons-page">
 
         <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
-          <div id="gelatokartan-heading" class="center" style="color: white">GELATOKARTAN</div>
-          <div class="right">
+          <div class="left" style="background-color: #f6c2a4;"></div>
+          <div id="gelatokartan-heading" class="center" style="color: white; background-color: #f6c2a4;">GELATOKARTAN</div>
+          <div class="right" style="background-color: #f6c2a4;">
             <ons-toolbar-button onclick=openPage(profile)>
               <ons-icon icon="md-account" style="color: white;"></ons-icon>
             </ons-toolbar-button>
@@ -140,7 +145,7 @@
                 >&rarr;</button>
             </div>
             <div class="controls geo-control">
-              <button class="buttonHere">Här</button>
+              <button class="geo-control">Här</button>
             </div>
           </div>
           <div style="background-color: #FFF8BA">
@@ -175,8 +180,9 @@
    <template id="profile">
      <ons-page id="profile">
       <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
-        <div class="center" style="color: white">PROFIL</div>
-        <div class="left">
+        <div class="right" style="background-color: #f6c2a4;"></div>
+        <div class="center" style="color: white; background-color: #f6c2a4;">PROFIL</div>
+        <div class="left" style="background-color: #f6c2a4;">
           <ons-back-button><ons-icon icon="md-arrow" style="color:white"></ons-icon></ons-back-button>
         </div>
       </ons-toolbar>
@@ -214,8 +220,9 @@
      <ons-page id="infoview">
 
       <ons-toolbar id="home-toolbar" style="background-color: #f6c2a4">
-        <div id="gelato-bar-name" class="center" style="color: white">Namn</div>
-        <div class="left">
+        <div class="right" style="background-color: #f6c2a4;"></div>
+        <div id="gelato-bar-name" class="center" style="color: white; background-color: #f6c2a4;">Namn</div>
+        <div class="left" style="background-color: #f6c2a4;">
           <ons-back-button></ons-back-button>
         </div>
       </ons-toolbar>
@@ -273,7 +280,7 @@
   <!-- <script src="/https://www.gstatic.com/firebase/init.js"></script> -->
 
    <script>
-    
+
     firebase.initializeApp({
       apiKey: "AIzaSyD6Z4UjiaNIW0HU9y_oJRgw1aMmFE_82kY",
       authDomain: "gelatokartan.firebaseapp.com",
@@ -299,7 +306,7 @@
 							lat: parseFloat(bar.latitud),
 							lng: parseFloat(bar.longitud)
               };
-        
+
         var icon = {
         url: "./img/glass_pin.png", // url
         scaledSize: new google.maps.Size(44, 80), // size
@@ -329,7 +336,7 @@
             loadMessages(storedBar.address)
             document.addEventListener('init', function(event) {
             console.log('This is a lifecycle event!', event.target);
-          
+
           var page = event.target;
           if (page.matches('#infoview')) {
             page.querySelector('ons-card .comments').innerHTML = '';
@@ -348,7 +355,7 @@
     }
 
     getData();
-    
+
     function saveMessage(id) {
       // Add a new message entry to the database.
       var user = isUserSignedIn()
@@ -364,13 +371,13 @@
           //console.log(window.location.href)
           //document.getElementById('navigator').pushPage("infoview").then(function() {
           //console.log(document.getElementById('navigator').topPage.id)
-          //initFirebaseAuth()          
+          //initFirebaseAuth()
           //window.location.reload();
         }).catch(function(error) {
           console.error('Error writing new message to database', error);
         })
       }
-    
+
     }
 
     // Loads chat messages history and listens for upcoming ones.
@@ -386,7 +393,7 @@
           var query = firebase.firestore()
                       .collection('gelatobarer/'+id+'/reviews')
                       .orderBy('timestamp', 'desc')
-        
+
 
         // Start listening to the query.
           query.onSnapshot(function(snapshot) {
